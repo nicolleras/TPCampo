@@ -1,0 +1,25 @@
+﻿@model PagoModel
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Eliminar
+    </div>
+    <div class="card-body">
+
+        <form asp-action="Eliminar" asp-controller="MantenedorPago" method="post">
+
+            <input asp-for="IdPago" type="hidden" class="form-control">
+
+            <div class="alert alert-danger" role="alert">
+                ¿Desea eliminar el Pago : @Html.DisplayTextFor(m => m.IdPago) ?
+            </div>
+
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <a asp-action="Listar" asp-controller="MantenedorPago" class="btn btn-warning">Volver al listado</a>
+        </form>
+    </div>
+</div>

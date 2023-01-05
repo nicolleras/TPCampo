@@ -1,0 +1,25 @@
+﻿@model ReservaModel
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Eliminar
+    </div>
+    <div class="card-body">
+
+        <form asp-action="Eliminar" asp-controller="MantenedorReserva" method="post">
+
+            <input asp-for="IdReserva" type="hidden" class="form-control">
+
+            <div class="alert alert-danger" role="alert">
+                ¿Desea eliminar el Reserva : @Html.DisplayTextFor(m => m.IdReserva) ?
+            </div>
+
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <a asp-action="Listar" asp-controller="MantenedorReserva" class="btn btn-warning">Volver al listado</a>
+        </form>
+    </div>
+</div>

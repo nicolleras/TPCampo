@@ -1,0 +1,83 @@
+﻿@model VehiculoModel
+
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Editar
+    </div>
+    <div class="card-body">
+
+        <form asp-action="Editar" asp-controller="MantenedorVehiculo" method="post">
+
+            <input asp-for="IdVehiculo" type="hidden" class="form-control" />
+            <div class="mb-3">
+                <label class="form-label">Marca</label>
+                <input asp-for="Marca" type="text" class="form-control" />
+                <span asp-validation-for="Marca" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Modelo</label>
+                <input asp-for="Modelo" type="text" class="form-control" />
+                <span asp-validation-for="Modelo" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Imagen</label>
+                <input asp-for="Imagen" type="text" class="form-control" />
+                <span asp-validation-for="Imagen" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">PrecioPorDia</label>
+                <input asp-for="PrecioPorDia" type="text" class="form-control" />
+                <span asp-validation-for="PrecioPorDia" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">CapacidadPasajeros</label>
+                <input asp-for="CapacidadPasajeros" type="text" class="form-control" />
+                <span asp-validation-for="CapacidadPasajeros" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">CapacidadEquipaje</label>
+                <input asp-for="CapacidadEquipaje" type="text" class="form-control" />
+                <span asp-validation-for="CapacidadEquipaje" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">TipoCaja</label>
+                <input asp-for="TipoCaja" type="text" class="form-control" />
+                <span asp-validation-for="TipoCaja" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">CantidadDePuertas</label>
+                <input asp-for="CantidadDePuertas" type="text" class="form-control" />
+                <span asp-validation-for="CantidadDePuertas" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">AireAcondicionado</label>
+                <input asp-for="AireAcondicionado" type="text" class="form-control" />
+                <span asp-validation-for="AireAcondicionado" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">TipoDeCobertura</label>
+                <input asp-for="TipoDeCobertura" type="text" class="form-control" />
+                <span asp-validation-for="TipoDeCobertura" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">KmHabilitado</label>
+                <input asp-for="KmHabilitado" type="text" class="form-control" />
+                <span asp-validation-for="KmHabilitado" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">IdEmpresaProveedora</label>
+                <input asp-for="IdEmpresaProveedora" type="text" class="form-control" />
+                <span asp-validation-for="IdEmpresaProveedora" class="text-danger"></span>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            <a asp-action="Listar" asp-controller="MantenedorVehiculo" class="btn btn-warning">Volver al listado</a>
+        </form>
+    </div>
+</div>
+

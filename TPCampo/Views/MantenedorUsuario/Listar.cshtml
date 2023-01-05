@@ -1,0 +1,58 @@
+﻿@model List<UsuarioModel> //Clase a utilizar en el formulario
+
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        Lista de Usuarios
+    </div>
+    <div class="card-body">
+        <a asp-action="CrearCuenta" asp-controller="MantenedorUsuario" class="btn btn-success">Crear Nuevo Usuario</a>
+       <hr />
+       <table class="table table-bordered">
+           <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Contraseña</th>
+                    <th>Rol de Usuario</th>
+                    <th>FechaNacimiento</th>
+                    <th>TipoDocumento</th>
+                    <th>Dni</th>
+                    <th>Telefono</th>
+                </tr>
+           </thead>
+           <tbody>
+               @foreach(var item in Model)
+               {
+                   <tr>
+                        <td> @item.Nombre</td>
+                        <td> @item.Apellido</td>
+                        <td> @item.Email</td>
+                        <td> @item.Contraseña</td>
+                        <td> @item.Rol</td>
+                        <td> @item.FechaNacimiento</td>
+                        <td> @item.TipoDocumento</td>
+                        <td> @item.Dni</td>
+                        <td> @item.Telefono</td>
+                        <td>
+                            <a asp-action="Editar" asp-controller="MantenedorUsuario" class="btn btn-primary btn-sm" asp-route-IdUsuario ="@item.IdUsuario" >Editar</a>
+                            <a asp-action="Eliminar" asp-controller="MantenedorUsuario" class="btn btn-danger btn-sm" asp-route-IdUsuario="@item.IdUsuario">Eliminar</a>
+                        </td>
+                   </tr>
+
+               }
+           </tbody>
+       </table>
+
+    </div>
+</div>
+
+
+
+

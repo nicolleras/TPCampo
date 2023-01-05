@@ -1,0 +1,67 @@
+﻿@model PagoModel
+
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Editar
+    </div>
+    <div class="card-body">
+
+        <form asp-action="Editar" asp-controller="MantenedorPago" method="post">
+
+            <input asp-for="IdPago" type="hidden" class="form-control" />
+            <div class="mb-3">
+                <label class="form-label">MontoFinal</label>
+                <input asp-for="MontoFinal" type="text" class="form-control" />
+                <span asp-validation-for="MontoFinal" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Estado</label>
+                <input asp-for="Estado" type="text" class="form-control" />
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">ServicioPago</label>
+                <input asp-for="ServicioPago" type="text" class="form-control" />
+                <span asp-validation-for="ServicioPago" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">MedioPago</label>
+                <input asp-for="MedioPago" type="text" class="form-control" />
+                <span asp-validation-for="MedioPago" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">UltimosCuatro</label>
+                <input asp-for="UltimosCuatro" type="text" class="form-control" />
+                <span asp-validation-for="UltimosCuatro" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Cuotas</label>
+                <input asp-for="Cuotas" type="text" class="form-control" />
+                <span asp-validation-for="Cuotas" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">CodigoBarras</label>
+                <input asp-for="CodigoBarras" type="text" class="form-control" />
+                <span asp-validation-for="CodigoBarras" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Cvu</label>
+                <input asp-for="Cvu" type="text" class="form-control" />
+                <span asp-validation-for="Cvu" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">IdReserva</label>
+                <input asp-for="IdReserva" type="text" class="form-control" />
+                <span asp-validation-for="IdReserva" class="text-danger"></span>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            <a asp-action="Listar" asp-controller="MantenedorPago" class="btn btn-warning">Volver al listado</a>
+        </form>
+    </div>
+</div>

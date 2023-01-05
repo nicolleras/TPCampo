@@ -1,0 +1,54 @@
+﻿@model List<PagoModel> //Clase a utilizar en el formulario
+
+@{
+    ViewData["Title"] = "Listar Pago";
+    Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        Lista de Pagos
+    </div>
+    <div class="card-body">
+        <a asp-action="Guardar" asp-controller="MantenedorPago" class="btn btn-success">Crear Nueva Pago</a>
+        <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>MontoFinal</th>
+                    <th>Estado</th>
+                    <th>ServicioPago</th>
+                    <th>MedioPago</th>
+                    <th>UltimosCuatro</th>
+                    <th>Cuotas</th>
+                    <th>CodigoBarras</th>
+                    <th>Cvu</th>
+                    <th>IdReserva</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td> @item.MontoFinal</td>
+                        <td> @item.Estado</td>
+                        <td> @item.ServicioPago</td>
+                        <td> @item.MedioPago</td>
+                        <td> @item.UltimosCuatro</td>
+                        <td> @item.Cuotas</td>
+                        <td> @item.CodigoBarras</td>
+                        <td> @item.Cvu</td>
+                        <td> @item.IdReserva</td>
+                        <td>
+                            <a asp-action="Editar" asp-controller="MantenedorPago" class="btn btn-primary btn-sm" asp-route-IdPago="@item.IdPago">Editar Pago</a>
+                            <a asp-action="Eliminar" asp-controller="MantenedorPago" class="btn btn-danger btn-sm" asp-route-IdPago="@item.IdPago">Eliminar Pago</a>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

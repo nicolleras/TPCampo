@@ -1,0 +1,69 @@
+﻿@model UsuarioModel
+
+@{
+    ViewData["Title"] = "CrearCuenta";
+    Layout = "~/Views/Shared/_LayoutUsuario1.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        CrearCuenta
+    </div>
+    <div class="card-body">
+
+        <form asp-action="Index" asp-controller="HomeUsuario" method="post">
+        
+            <input asp-for="IdUsuario" type="hidden" class="form-control" />
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input asp-for="Nombre" type="text" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Apellido</label>
+                <input asp-for="Apellido" type="text" class="form-control" />
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input asp-for="Email" type="text" placeholder="Por ejemplo, juan@dominio.com" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+                <div id="emailHelp" class="form-text"> Tu mail será para contactarte en caso de ser necesario.</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Contraseña</label>
+                <input asp-for="Contraseña" type="text" />
+                <span asp-validation-for="Contraseña" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Rol de Usuario</label>
+                <input asp-for="Rol" type="text" placeholder="Ingrese el rol para el usuario, Normal/Administrador" class="form-control" />
+                <span asp-validation-for="Rol" class="text-danger"></span>
+            </div>
+             <div class="mb-3">
+                <label class="form-label">FechaNacimiento</label>
+                <input asp-for="FechaNacimiento" type="text"  class="form-control" />
+                <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">TipoDocumento</label>
+                <input asp-for="TipoDocumento" type="text"  class="form-control" />
+                <span asp-validation-for="TipoDocumento" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Dni</label>
+                <input asp-for="Dni" type="text" placeholder="Ingrese el rol para el usuario, Normal/Administrador" class="form-control" />
+                <span asp-validation-for="Dni" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Telefono</label>
+                <input asp-for="Telefono" type="text" placeholder="Ingrese el rol para el usuario, Normal/Administrador" class="form-control" />
+            <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Crear cuenta</button>
+            <a asp-action="Listar" asp-controller="Mantenedor" class="btn btn-warning">Volver al listado</a>
+        </form>
+    </div>
+</div>
+

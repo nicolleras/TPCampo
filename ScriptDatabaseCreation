@@ -1,0 +1,101 @@
+USE [TPCampoDB]
+GO
+/****** Object:  Table [dbo].[USUARIO]    Script Date: 3/11/2022 18:56:42 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[USUARIO](
+	[IdUsuario] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](20) NULL,
+	[Apellido] [varchar](20) NULL,
+	[Mail] [varchar](50) NULL,
+	[Rol] [varchar](20) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdUsuario] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[USUARIO] ON 
+GO
+INSERT [dbo].[USUARIO] ([IdUsuario], [Nombre], [Apellido], [Mail], [Rol]) VALUES (1, N'Nicolas', N'Pavoni', N'npavoni10@gmail.com', N'Administrador')
+GO
+INSERT [dbo].[USUARIO] ([IdUsuario], [Nombre], [Apellido], [Mail], [Rol]) VALUES (2, N'Nicolas', N'Lleras', N'nicolleras@gmail.com', N'Normal')
+GO
+INSERT [dbo].[USUARIO] ([IdUsuario], [Nombre], [Apellido], [Mail], [Rol]) VALUES (3, N'Santiago', N'Bru', N'santiagobrugei@gmail.com', N'Normal')
+GO
+SET IDENTITY_INSERT [dbo].[USUARIO] OFF
+GO
+/****** Object:  StoredProcedure [dbo].[sp_EditarUsuario]    Script Date: 3/11/2022 18:56:43 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[sp_EditarUsuario](
+@idUsuario int,
+@Nombre varchar(50),
+@Apellido varchar(50),
+@Mail varchar(50),
+@Rol varchar(50)
+)
+as
+begin
+	update [dbo].[USUARIO] set Nombre = @Nombre, Apellido = @Apellido, Mail = @Mail, Rol = @Rol where IdUsuario = @idUsuario
+	end
+GO
+/****** Object:  StoredProcedure [dbo].[sp_Eliminar]    Script Date: 3/11/2022 18:56:43 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[sp_Eliminar](
+@IdUsuario int
+)
+as
+begin
+	delete from [dbo].[USUARIO] where IdUsuario = @IdUsuario
+end
+GO
+/****** Object:  StoredProcedure [dbo].[sp_GetUsuario]    Script Date: 3/11/2022 18:56:43 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[sp_GetUsuario](
+@idUsuario int
+)
+as
+begin
+	select * from [dbo].[USUARIO] where IdUsuario = @idUsuario
+end
+
+GO
+/****** Object:  StoredProcedure [dbo].[sp_Guardar]    Script Date: 3/11/2022 18:56:43 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[sp_Guardar](
+@Nombre varchar(50),
+@Apellido varchar(50),
+@Mail varchar(50),
+@Rol varchar(50)
+)
+as
+begin
+	insert into [dbo].[USUARIO](Nombre,Apellido,Mail,Rol) values (@Nombre,@Apellido,@Mail,@Rol)
+end
+
+GO
+/****** Object:  StoredProcedure [dbo].[sp_ListarUsuarios]    Script Date: 3/11/2022 18:56:43 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[sp_ListarUsuarios]
+as
+begin
+	select * from [dbo].[USUARIO]
+	end
+GO

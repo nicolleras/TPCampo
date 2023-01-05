@@ -1,0 +1,47 @@
+﻿@model List<EmpresaProveedoraModel> //Clase a utilizar en el formulario
+
+@{
+    ViewData["Title"] = "Listar EmpresaProveedora";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        Lista de EmpresaProveedora
+    </div>
+    <div class="card-body">
+        <a asp-action="Guardar" asp-controller="MantenedorEmpresaProveedora" class="btn btn-success">Crear Nueva EmpresaProveedora</a>
+       <hr />
+       <table class="table table-bordered">
+           <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Logo</th>
+                    <th>Calificacion Promedio</th>
+                </tr>
+           </thead>
+           <tbody>
+               @foreach(var item in Model)
+               {
+                   <tr>
+                        <td> @item.Nombre</td>
+                        <td> @item.Logo</td>
+                        <td> @item.CalificacionPromedio</td>
+                        <td>
+
+                            <a asp-action="Editar" asp-controller="MantenedorEmpresaProveedora" class="btn btn-primary btn-sm" asp-route-IdEmpresaProveedora="@item.IdEmpresaProveedora">Editar EmpresaProveedora</a>
+                            <a asp-action="Eliminar" asp-controller="MantenedorEmpresaProveedora" class="btn btn-danger btn-sm" asp-route-IdEmpresaProveedora="@item.IdEmpresaProveedora">Eliminar EmpresaProveedora</a>
+                        </td>
+                   </tr>
+
+               }
+           </tbody>
+       </table>
+
+    </div>
+</div>
+
+
+
+
