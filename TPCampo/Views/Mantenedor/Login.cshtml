@@ -10,26 +10,28 @@
         Login
     </div>
     <div class="card-body">
-        
+
         <form asp-action="Login" asp-controller="Mantenedor" method="post">
-           
-            <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input asp-for="Email" type="text" placeholder="Por ejemplo, juan@dominio.com" class="form-control" />
-            <span asp-validation-for="Email" class="text-danger"></span>
-            <div id="emailHelp" class="form-text"> Tu mail será para contactarte en caso de ser necesario.</div>
+
+            <div class="row">
+                <div class="col-3">
+                    <label class="form-label">Email</label>
+                    <input asp-for="Email" type="text" placeholder="Por ejemplo, alguien@dominio.com"
+                        class="form-control" required />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                    <div id="emailHelp" class="form-text"> Tu mail será para contactarte en caso de ser necesario.</div>
+
+                    <label class="form-label">Contraseña</label>
+                    <input asp-for="Contraseña" type="text" required />
+                    <span asp-validation-for="Contraseña" class="text-danger"></span>
+                </div>
+
+                <br>
+                <button asp-action="Index" asp-controller="HomeUsuario" class="btn btn-primary">Iniciar Sesión</button>
+                <a asp-action="CrearCuenta" asp-controller="Mantenedor" class="btn btn-warning">CrearCuenta</a>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Contraseña</label>
-                <input asp-for="Contraseña" type="text" />
-                <span asp-validation-for="Contraseña" class="text-danger"></span>
-            </div>
-            
-            <br>
-            <button asp-action="Index" asp-controller="HomeUsuario" class="btn btn-primary">Iniciar Sesión</button>
-            <a asp-action="CrearCuenta" asp-controller="Mantenedor" class="btn btn-warning">CrearCuenta</a>
         </form>
     </div>
 </div>
-        
+
 
