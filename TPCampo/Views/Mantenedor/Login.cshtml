@@ -14,27 +14,56 @@
         <form asp-action="Login" asp-controller="Mantenedor" method="post">
 
             <div class="row">
-                <div class="col-3">
+                <div class="col-6">
                     <label class="form-label">Email</label>
                     <input asp-for="Email" type="text" placeholder="Por ejemplo, alguien@dominio.com"
                         class="form-control" required />
                     <span asp-validation-for="Email" class="text-danger"></span>
-                    <div id="emailHelp" class="form-text"> Tu mail será para contactarte en caso de ser necesario.</div>
 
                     <label class="form-label">Contraseña</label>
-                    <input asp-for="Contraseña" type="text" required />
+                    <input asp-for="Contraseña" type="text" placeholder="******" class="form-control" required />
                     <span asp-validation-for="Contraseña" class="text-danger"></span>
-                    <div class="col-1">
-                        <br>
+
+                    <div class="d-flex gap-1 col" style="margin-top: 10px">
                         <button asp-action="Index" asp-controller="HomeUsuario" class="btn btn-primary">Iniciar
-                            Sesión</button>
-                    </div>
-                    <div class="col-1">
-                        <a asp-action="CrearCuenta" asp-controller="Mantenedor" class="btn btn-warning">CrearCuenta</a>
+                            sesión </button>
+                        <button asp-action="CrearCuenta" asp-controller="Mantenedor" class="btn btn-warning">Crear
+                            cuenta </button>
                     </div>
                 </div>
         </form>
     </div>
 </div>
 
+@* <div class="card">
+<div class="card-header">
+Login
+</div>
+<div class="card-body">
+
+<form asp-action="Login" asp-controller="Mantenedor" method="post">
+<div class="row">
+<div class="col-3">
+<label class="form-label">Email</label>
+<input asp-for="Email" type="text" placeholder="Por ejemplo, alguien@dominio.com"
+class="form-control" required />
+<span asp-validation-for="Email" class="text-danger"></span>
+<div id="emailHelp" class="form-text"> Tu mail será para contactarte en caso de ser necesario.</div>
+
+<label class="form-label">Contraseña</label>
+<input asp-for="Contraseña" type="text" required />
+<span asp-validation-for="Contraseña" class="text-danger"></span>
+<div class="col-1">
+<br>
+<button asp-action="Index" asp-controller="HomeUsuario" class="btn btn-primary">Iniciar
+Sesión</button>
+</div>
+<div class="col-1">
+<a asp-action="CrearCuenta" asp-controller="Mantenedor" class="btn btn-warning">CrearCuenta</a>
+</div>
+</div>
+</form>
+</div>
+</div>
+*@
 
