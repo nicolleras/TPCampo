@@ -5,58 +5,11 @@
     Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
 }
 
-<div class="card">
+<div class="card border-3 rounded-3">
     <div class="card-header">
         Lista de Reservas
     </div>
-    <div class="card-body">
-        <a asp-action="Guardar" asp-controller="MantenedorReserva" class="btn btn-success">Crear Nueva Reserva</a>
-        <hr />
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>Destino</th>
-                    <th>FechaInicio</th>
-                    <th>FechaFin</th>
-                    <th>Estado</th>
-                    <th>MontoTotal</th>
-                    <th>IdVehiculo</th>
-                    <th>IdUsuario</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td> @item.Destino</td>
-                        <td> @item.FechaInicio</td>
-                        <td> @item.FechaFin</td>
-                        <td> @item.Estado</td>
-                        <td> @item.MontoTotal</td>
-                        <td> @item.IdVehiculo</td>
-                        <td> @item.IdUsuario</td>
-                        <td>
-                            <a asp-action="Guardar" asp-controller="MantenedorPago" class="btn btn-primary btn-sm"
-                                asp-route-IdReserva="@item.IdReserva">Pagar</a>
-                            <a asp-action="Editar" asp-controller="MantenedorReserva" class="btn btn-primary btn-sm"
-                                asp-route-IdReserva="@item.IdReserva">Editar Reserva</a>
-                            <a asp-action="Eliminar" asp-controller="MantenedorReserva" class="btn btn-danger btn-sm"
-                                asp-route-IdReserva="@item.IdReserva">Eliminar Reserva</a>
 
-                        </td>
-                    </tr>
-
-                }
-            </tbody>
-        </table>
-
-    </div>
-</div>
-
-<div class="card">
-    <div class="card-header">
-        Lista de Reservas
-    </div>
     <div class="card-body">
         <hr />
         <div class="row">
@@ -64,7 +17,9 @@
                 {                   
                     <div class="col-6">
                         <div class="row">
-                            <div class="card col-6">
+                        <div class="card col-6 card border-3 rounded-3 mb-3 ms-3">
+                            <img class="card-img-top" src="https://fotos.perfil.com/2022/10/04/renault-twingo-1431004.jpg">
+                            <div class="card-body">
                                 <ul>
                                     <li>Destino: @item.Destino</li>
                                     <li>FechaInicio: @item.FechaInicio</li>
@@ -80,8 +35,9 @@
                                         }
                                         <!--<a asp-action="Editar" asp-controller="MantenedorReserva" class="btn btn-primary btn-sm" asp-route-IdReserva="item.IdReserva">Editar Reserva</a>-->
                                         <a asp-action="Eliminar" asp-controller="MantenedorReserva" class="btn btn-danger btn-sm" asp-route-IdReserva="@item.IdReserva">Eliminar Reserva</a>
-                                    </li>
+                                    </li>               
                                 </ul>
+                            </div>
                             </div>
                         </div>
                     </div>

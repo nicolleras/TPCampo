@@ -25,8 +25,6 @@ namespace TPCampo.Data
 
                 using (var dr = cmd.ExecuteReader())
                 {
-                    if (dr.Read() != false)
-                    {
                         while (dr.Read())
                         {
                             oLista.Add(new PagoModel()
@@ -44,7 +42,6 @@ namespace TPCampo.Data
                             });
 
                         }
-                    }
                 }
             }
             return oLista;

@@ -11,7 +11,7 @@
     </div>
     <div class="card-body row">
 
-        <form asp-action="Buscar" asp-controller="HomeUsuario" class="form method=" post">
+        <form asp-action="Buscar" asp-controller="MantenedorBuscar" class="form" method="post">
 
             <div class="col-6 col-md-3">
                 <label class="form-label">Destino</label>
@@ -30,41 +30,7 @@
             </div>
 
             <br>
-            <button asp-action="ListarBusqueda" asp-controller="MantenedorVehiculo"
-                class="btn btn-primary">Buscar</button>
+            <button type="submit" class="btn btn primary ">Buscar</button>
         </form>
-    </div>
-</div>
-
-@* <div class="card">
-<div class="card-header">
-Buscar vehiculos disponibles
-</div>
-<div class="card-body">
-
-        <form asp-action="Buscar" asp-controller="MantenedorBuscar" method="post">
-
-
-            <div class="mb-3">
-                <label class="form-label">Destino</label>
-                <input asp-for="Destino" type="text" />
-                <span asp-validation-for="Destino" class="text-danger"></span>
-
-            </div>
-            <div class="mb-3">
-                <label class="form-label">FechaInicio</label>
-                <input asp-for="FechaInicio" type="text" />
-                <span asp-validation-for="FechaInicio" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">FechaFin</label>
-                <input asp-for="FechaFin" type="text" />
-                <span asp-validation-for="FechaFin" class="text-danger"></span>
-            </div>
-
-            <br>
-            <button type="submit" class="btn btn-primary">Buscar</button>
-        </form>
-
     </div>
 </div>
