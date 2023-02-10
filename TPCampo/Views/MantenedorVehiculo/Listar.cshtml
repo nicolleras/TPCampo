@@ -12,9 +12,9 @@
     </div>
     <div class="card-body">
         <a asp-action="Guardar" asp-controller="MantenedorVehiculo" class="btn btn-success">Crear Nuevo Vehiculo</a>
-       <hr />
-       <table class="table table-bordered">
-           <thead>
+        <hr />
+        <table class="table table-striped table-hover">
+            <thead>
                 <tr>
                     <th>Marca</th>
                     <th>Modelo</th>
@@ -36,11 +36,11 @@
                     <th>IdEmpresa
                         Proveedora</th>
                 </tr>
-           </thead>
-           <tbody>
-               @foreach(var item in Model)
-               {
-                   <tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
                         <td> @item.Marca</td>
                         <td> @item.Modelo</td>
                         <td> @item.Imagen</td>
@@ -54,14 +54,16 @@
                         <td> @item.KmHabilitado</td>
                         <td> @item.IdEmpresaProveedora</td>
                         <td>
-                            <a asp-action="Editar" asp-controller="MantenedorVehiculo" class="btn btn-primary btn-sm" asp-route-IdVehiculo="@item.IdVehiculo">Editar Vehiculo</a>
-                            <a asp-action="Eliminar" asp-controller="MantenedorVehiculo" class="btn btn-danger btn-sm" asp-route-IdVehiculo="@item.IdVehiculo">Eliminar Vehiculo</a>
+                            <a asp-action="Editar" asp-controller="MantenedorVehiculo" class="btn btn-primary btn-sm"
+                                asp-route-IdVehiculo="@item.IdVehiculo">Editar Vehiculo</a>
+                            <a asp-action="Eliminar" asp-controller="MantenedorVehiculo" class="btn btn-danger btn-sm"
+                                asp-route-IdVehiculo="@item.IdVehiculo">Eliminar Vehiculo</a>
                         </td>
-                   </tr>
+                    </tr>
 
-               }
-           </tbody>
-       </table>
+                }
+            </tbody>
+        </table>
 
     </div>
 </div>
