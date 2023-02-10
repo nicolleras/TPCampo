@@ -19,6 +19,5 @@ namespace TPCampo.Models
         public int? Cvu { get; set; }
 
         public int? IdReserva { get; set; }
-
     }
 }

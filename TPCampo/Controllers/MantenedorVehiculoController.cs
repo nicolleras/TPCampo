@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using TPCampo.Data;
 using TPCampo.Models;
 
@@ -20,10 +21,12 @@ namespace TPCampo.Controllers
 
         public IActionResult ListarBusqueda()
         {
+            Modelos modelos = new Modelos();
             //Esta vista muestra la lista de Vehiculos
-            var oLista = _VehiculoDatos.Listar();
+            modelos.vehiculosModel = _VehiculoDatos.Listar();
+            modelos.buscarModel = JsonConvert.DeserializeObject<BuscarModel>(TempData["mydata"].ToString());
 
-            return View(oLista);
+            return View(modelos);
         }
 
         public IActionResult Guardar()
@@ -40,31 +43,6 @@ namespace TPCampo.Controllers
                 return View();
 
             var respuesta = _VehiculoDatos.Guardar(oVehiculo);
-
-            if (respuesta)
-                return RedirectToAction("Listar");
-            else
-                return View();
-        }
-
-        [HttpPost]
-        public IActionResult Reservar(int idVehiculo)
-        {
-            var _ReservaDatos = new ReservaDatos();
-            var oReserva = new ReservaModel();
-
-            oReserva.Destino = "Qatar";
-            oReserva.FechaInicio = "asd";
-            oReserva.FechaFin = "asd";
-            oReserva.Estado = "PENDIENTE";
-            oReserva.MontoTotal = 12000;
-            oReserva.IdVehiculo = idVehiculo;
-            oReserva.IdUsuario = 1;
-
-            var respuesta = _ReservaDatos.Guardar(oReserva);
-
-            if (!ModelState.IsValid)
-                return View();
 
             if (respuesta)
                 return RedirectToAction("Listar");

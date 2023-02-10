@@ -10,16 +10,15 @@
         Crear Pago
     </div>
     <div class="card-body">
-
         <form asp-action="Guardar" asp-controller="MantenedorPago" method="post">
             <div class="mb-3">
                 <label class="form-label">MontoFinal</label>
-                <input asp-for="MontoFinal" type="text" class="form-control" />
+                <input asp-for="MontoFinal" type="text" class="form-control" value="@(ViewBag.montoTotal)" readonly />
                 <span asp-validation-for="MontoFinal" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label class="form-label">Estado</label>
-                <input asp-for="Estado" type="text" class="form-control" />
+                <input asp-for="Estado" type="text" class="form-control" value="@(ViewBag.estado)" readonly />
                 <span asp-validation-for="Estado" class="text-danger"></span>
             </div>
             <div class="mb-3">
@@ -54,11 +53,11 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">IdReserva</label>
-                <input asp-for="IdReserva" type="text" class="form-control" />
+                <input asp-for="IdReserva" type="text" class="form-control" value="@(ViewBag.idReserva)" readonly />
                 <span asp-validation-for="IdReserva" class="text-danger"></span>
             </div>
             <br>
-            <button type="submit" class="btn btn-primary">Guardar Pago</button>
+            <button type="submit" class="btn btn-primary">Pagar</button>
             <a asp-action="Listar" asp-controller="MantenedorPago" class="btn btn-warning">Volver al listado</a>
         </form>
     </div>

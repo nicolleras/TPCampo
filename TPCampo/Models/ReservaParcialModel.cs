@@ -2,17 +2,16 @@
 
 namespace TPCampo.Models
 {
-    public class BuscarModel
+    public class ReservaParcialModel
     {
 
+        public int IdVehiculo { get; set; }
         public string? Destino { get; set; }
+
         public string? FechaInicio { get; set; }
 
         public string? FechaFin { get; set; }
+        public float? MontoTotal { get; set; }
 
-        //public static implicit operator List<object>(BuscarModel v)
-        //{
-         //   throw new NotImplementedException();
-        //}
     }
 }

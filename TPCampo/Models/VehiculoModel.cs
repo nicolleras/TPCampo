@@ -12,7 +12,7 @@ namespace TPCampo.Models
         [Required(ErrorMessage = "El campo Imagen es obligatorio")]
         public string? Imagen { get; set; }
         [Required(ErrorMessage = "El campo PrecioPorDia es obligatorio")]
-        public string? PrecioPorDia { get; set; }
+        public float? PrecioPorDia { get; set; }
         [Required(ErrorMessage = "El campo CapacidadPasajeros es obligatorio")]
         public string? CapacidadPasajeros { get; set; }
         [Required(ErrorMessage = "El campo CapacidadEquipaje es obligatorio")]

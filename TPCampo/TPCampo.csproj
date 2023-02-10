@@ -35,7 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\MantenedorVehiculo\Reservar.cshtml" />
+    <None Include="Views\MantenedorReserva\ElegirReserva.cshtml" />
   </ItemGroup>
 
 </Project>

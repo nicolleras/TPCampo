@@ -18,8 +18,11 @@ namespace TPCampo.Controllers
             return View(oLista);
         }
 
-        public IActionResult Guardar()
+        public IActionResult Guardar(int idReserva, float montoTotal, string estado)
         {
+            ViewBag.idReserva = idReserva;
+            ViewBag.montoTotal = montoTotal;
+            ViewBag.estado = estado;
             //Esto devuelve solamente la vista, el formulario HTML
             return View();
         }
@@ -30,25 +33,18 @@ namespace TPCampo.Controllers
             //Este metodo recibe un objeto y lo guarda en la db
             if (!ModelState.IsValid)
                 return View();
-
-            var respuesta = _PagoDatos.Guardar(oPago);
-
-
-
-
-            var _ReservaDatos = new ReservaDatos();
-            var oReserva = new ReservaModel();
-
+            oPago.Estado = "CONFIRMADO";
             int idReserva = (int) oPago.IdReserva;
 
-            oReserva = _ReservaDatos.Obtener(idReserva);
-            oReserva.Estado = "CONFIRMADA";       
-            _ReservaDatos.Editar(oReserva);
-
-
-
-            if (respuesta)
+            if (_PagoDatos.Guardar(oPago))
+            {
+                var oReserva = new ReservaModel();
+                var _ReservaDatos = new ReservaDatos();
+                oReserva = _ReservaDatos.Obtener(idReserva);
+                oReserva.Estado = "CONFIRMADA";
+                _ReservaDatos.Editar(oReserva);
                 return RedirectToAction("Listar");
+            }
             else
                 return View();
         }

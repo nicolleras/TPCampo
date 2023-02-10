@@ -32,7 +32,7 @@ namespace TPCampo.Data
                             Marca = dr["Marca"].ToString(),
                             Modelo = dr["Modelo"].ToString(),
                             Imagen = dr["Imagen"].ToString(),
-                            PrecioPorDia = dr["PrecioPorDia"].ToString(),
+                            PrecioPorDia = Convert.ToSingle(dr["PrecioPorDia"]),
                             CapacidadPasajeros = dr["CapacidadPasajeros"].ToString(),
                             CapacidadEquipaje = dr["CapacidadEquipaje"].ToString(),
                             TipoCaja = dr["TipoCaja"].ToString(),
@@ -72,7 +72,7 @@ namespace TPCampo.Data
                         oVehiculo.Marca = dr["Marca"].ToString();
                         oVehiculo.Modelo = dr["Modelo"].ToString();
                         oVehiculo.Imagen = dr["Imagen"].ToString();
-                        oVehiculo.PrecioPorDia = dr["PrecioPorDia"].ToString();
+                        oVehiculo.PrecioPorDia = Convert.ToSingle(dr["PrecioPorDia"]);
                         oVehiculo.CapacidadPasajeros = dr["CapacidadPasajeros"].ToString();
                         oVehiculo.CapacidadEquipaje = dr["CapacidadEquipaje"].ToString();
                         oVehiculo.TipoCaja = dr["TipoCaja"].ToString();

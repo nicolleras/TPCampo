@@ -1,10 +1,9 @@
-﻿@model List<VehiculoModel> //Clase a utilizar en el formulario
+﻿@model TPCampo.Models.Modelos //Clase a utilizar en el formulario
 
 @{
     ViewData["Title"] = "Listar Vehiculos";
     Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
 }
-
 
 <div class="card">
     <div class="card-header">
@@ -51,7 +50,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var item in Model.vehiculosModel)
                 {
                     <tr>
                         <td> @item.Marca</td>
@@ -66,9 +65,12 @@
                         <td> @item.TipoDeCobertura</td>
                         <td> @item.KmHabilitado</td>
                         <td> @item.IdEmpresaProveedora</td>
-                        <td>
-                            <a asp-action="Reservar" asp-controller="MantenedorVehiculo" class="btn btn-success" asp-route-IdVehiculo="@item.IdVehiculo" >Reservar Vehiculo</a>
-                        </td>
+
+                            <td>
+                            <a asp-action="ElegirReserva" asp-controller="MantenedorReserva" class="btn btn-success" asp-route-IdVehiculo="@item.IdVehiculo" asp-route-Destino="@Model.buscarModel.Destino" asp-route-FechaInicio="@Model.buscarModel.FechaInicio" asp-route-FechaFin="@Model.buscarModel.FechaFin" asp-route-PrecioPorDia="@item.PrecioPorDia">Reservar Vehiculo</a>
+                            </td>
+                      
+
                     </tr>
 
                 }
