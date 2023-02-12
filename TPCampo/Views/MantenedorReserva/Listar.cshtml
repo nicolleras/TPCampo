@@ -1,4 +1,4 @@
-﻿@model List<ReservaModel> //Clase a utilizar en el formulario
+﻿@model TPCampo.Models.ModeloReservasVehiculos //Clase a utilizar en el formulario
 
 @{
     ViewData["Title"] = "Listar Reserva";
@@ -13,31 +13,31 @@
     <div class="card-body">
         <hr />
         <div class="row">
-                @foreach (var item in Model)
+                @foreach (var item in Model.reservaModel)
                 {                   
                     <div class="col-6">
                         <div class="row">
-                        <div class="card col-6 card border-3 rounded-3 mb-3 ms-3">
-                            <img class="card-img-top" src="https://fotos.perfil.com/2022/10/04/renault-twingo-1431004.jpg">
-                            <div class="card-body">
-                                <ul>
-                                    <li>Destino: @item.Destino</li>
-                                    <li>FechaInicio: @item.FechaInicio</li>
-                                    <li>FechaFin: @item.FechaFin</li>
-                                    <li>Estado: @item.Estado</li>
-                                    <li>MontoTotal: @item.MontoTotal</li>
-                                    <li>IdVehiculo: @item.IdVehiculo</li>
-                                    <li>IdUsuario: @item.IdUsuario</li>
-                                    <li>
-                                        @if (@item.Estado == "PENDIENTE")
-                                        {
-                                        <a asp-action="Guardar" asp-controller="MantenedorPago" class="btn btn-primary btn-sm" asp-route-IdReserva="@item.IdReserva" asp-route-MontoTotal="@item.MontoTotal" asp-route-Estado="@item.Estado">Pagar</a>
-                                        }
-                                        <!--<a asp-action="Editar" asp-controller="MantenedorReserva" class="btn btn-primary btn-sm" asp-route-IdReserva="item.IdReserva">Editar Reserva</a>-->
-                                        <a asp-action="Eliminar" asp-controller="MantenedorReserva" class="btn btn-danger btn-sm" asp-route-IdReserva="@item.IdReserva">Eliminar Reserva</a>
-                                    </li>               
-                                </ul>
-                            </div>
+                            <div class="card col-6 card border-3 rounded-3 mb-3 ms-3">
+                            <img class="card-img-top" src="@Model.vehiculosModel.Find(vehiculo => vehiculo.IdVehiculo == @item.IdVehiculo).Imagen">
+                                <div class="card-body">
+                                    <ul>
+                                        <li>Destino: @item.Destino</li>
+                                        <li>FechaInicio: @item.FechaInicio</li>
+                                        <li>FechaFin: @item.FechaFin</li>
+                                        <li>Estado: @item.Estado</li>
+                                        <li>MontoTotal: @item.MontoTotal</li>
+                                        <li>IdVehiculo: @item.IdVehiculo</li>
+                                        <li>IdUsuario: @item.IdUsuario</li>
+                                        <li>
+                                            @if (@item.Estado == "PENDIENTE")
+                                            {
+                                                <a asp-action="Guardar" asp-controller="MantenedorPago" class="btn btn-primary btn-sm" asp-route-IdReserva="@item.IdReserva" asp-route-MontoTotal="@item.MontoTotal" asp-route-Estado="@item.Estado">Pagar</a>
+                                            }
+                                            <!--<a asp-action="Editar" asp-controller="MantenedorReserva" class="btn btn-primary btn-sm" asp-route-IdReserva="item.IdReserva">Editar Reserva</a>-->
+                                            <a asp-action="Eliminar" asp-controller="MantenedorReserva" class="btn btn-danger btn-sm" asp-route-IdReserva="@item.IdReserva">Eliminar Reserva</a>
+                                        </li>               
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -13,13 +13,17 @@ namespace TPCampo.Controllers
     {
 
         ReservaDatos _ReservaDatos = new ReservaDatos();
+        VehiculoDatos _VehiculoDatos = new VehiculoDatos();
 
         public IActionResult Listar()
         {
             //Esta vista muestra la lista de Reservas
-            var oLista = _ReservaDatos.Listar();
 
-            return View(oLista);
+            ModeloReservasVehiculos modelos = new ModeloReservasVehiculos();
+            modelos.reservaModel = _ReservaDatos.Listar();
+            modelos.vehiculosModel = _VehiculoDatos.Listar();
+
+            return View(modelos);
         }
 
         public IActionResult Guardar()
