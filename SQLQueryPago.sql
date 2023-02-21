@@ -13,8 +13,8 @@ CREATE TABLE [dbo].[PAGO](
 	[MedioPago] [varchar](10) NOT NULL CHECK (MedioPago IN('CREDITO', 'DEBITO', 'EFECTIVO')),
 	[UltimosCuatro] [int] NULL,
 	[Cuotas] [int] NULL,
-	[CodigoBarras] [int] NULL,
-	[Cvu] [int] NULL,
+	[CodigoBarras] [bigint] NULL,
+	[Cvu] [bigint] NULL,
 	[IdReserva] [int] NULL,
 	CONSTRAINT fk_Reserva FOREIGN KEY (IdReserva) REFERENCES RESERVA (IdReserva),
 PRIMARY KEY CLUSTERED 
@@ -37,8 +37,8 @@ CREATE procedure [dbo].[sp_EditarPago](
 @MedioPago varchar(10),
 @UltimosCuatro int,
 @Cuotas int,
-@CodigoBarras int,
-@Cvu int,
+@CodigoBarras bigint,
+@Cvu bigint,
 @IdReserva int
 )
 as
@@ -85,8 +85,8 @@ create procedure [dbo].[sp_GuardarPago](
 @MedioPago varchar(10),
 @UltimosCuatro int,
 @Cuotas int,
-@CodigoBarras int,
-@Cvu int,
+@CodigoBarras bigint,
+@Cvu bigint,
 @IdReserva int
 )
 as

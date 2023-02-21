@@ -8,7 +8,7 @@ GO
 CREATE TABLE [dbo].[EMPRESA_PROVEEDORA](
 	[IdEmpresaProveedora] [int] IDENTITY(1,1) NOT NULL,
 	[Nombre] [varchar](20) NULL,
-	[Logo] [varchar](20) NULL,
+	[Logo] [varchar](200) NULL,
 	[CalificacionPromedio] [varchar](50) NULL,
 PRIMARY KEY CLUSTERED 
 (
@@ -28,7 +28,7 @@ GO
 CREATE procedure [dbo].[sp_EditarEmpresaProveedora](
 @IdEmpresaProveedora int,
 @Nombre varchar(50),
-@Logo varchar(50),
+@Logo varchar(200),
 @CalificacionPromedio varchar(50)
 )
 as
@@ -70,7 +70,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 create procedure [dbo].[sp_GuardarEmpresaProveedora](
 @Nombre varchar(50),
-@Logo varchar(50),
+@Logo varchar(200),
 @CalificacionPromedio varchar(50)
 )
 as

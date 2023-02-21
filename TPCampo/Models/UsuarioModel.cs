@@ -14,6 +14,9 @@ namespace TPCampo.Models
         [Required(ErrorMessage = "El campo Contraseña es obligatorio")]
         public string? Contraseña { get; set; }
         [Required(ErrorMessage = "El campo Rol es obligatorio")]
+
+        public string? ConfirmarContraseña { get; set; }
+        [Required(ErrorMessage = "El campo Rol es obligatorio")]
         public string? Rol { get; set; }
         
         public string? FechaNacimiento { get; set; }

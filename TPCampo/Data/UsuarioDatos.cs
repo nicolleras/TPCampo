@@ -193,7 +193,7 @@ namespace TPCampo.Data
             return respuesta;
         }
 
-        public bool Login(UsuarioModelLogin oUsuario)
+        public bool Login(UsuarioModel oUsuario)
         {
             bool respuesta;
 

@@ -87,7 +87,7 @@ namespace TPCampo.Controllers
             return View(oUsuario);
         }
         [HttpPost]
-        public IActionResult Login(UsuarioModelLogin oUsuario)
+        public IActionResult Login(UsuarioModel oUsuario)
         {
             if (!ModelState.IsValid)
                 return View();
