@@ -10,6 +10,7 @@ namespace TPCampo.Controllers
     {
 
         VehiculoDatos _VehiculoDatos = new VehiculoDatos();
+        ReservaDatos _ReservaDatos = new ReservaDatos();
 
         public IActionResult Listar()
         {
@@ -21,9 +22,26 @@ namespace TPCampo.Controllers
 
         public IActionResult ListarBusqueda()
         {
+            List<ReservaModel> rLista = _ReservaDatos.Listar();
+            var oLista = new List<VehiculoModel>();
+            BuscarModel buscar = JsonConvert.DeserializeObject<BuscarModel>(TempData["mydata"].ToString());
+
+            foreach (var item in rLista){
+                DateTime fechaInicioReserva = Convert.ToDateTime(item.FechaInicio);
+                DateTime fechaFinReserva = Convert.ToDateTime(item.FechaFin);
+                DateTime fechaInicioBusqueda = Convert.ToDateTime(buscar.FechaInicio);
+                DateTime fechaFinBusqueda = Convert.ToDateTime(buscar.FechaFin);
+
+                if ((fechaFinBusqueda < fechaInicioReserva) || (fechaFinReserva < fechaInicioBusqueda))
+                {
+                    int idVehiculo = (int) item.IdVehiculo;
+                    oLista.Add(_VehiculoDatos.Obtener(idVehiculo));
+                }
+            }
+
             Modelos modelos = new Modelos();
             //Esta vista muestra la lista de Vehiculos
-            modelos.vehiculosModel = _VehiculoDatos.Listar();
+            modelos.vehiculosModel = oLista;
             modelos.buscarModel = JsonConvert.DeserializeObject<BuscarModel>(TempData["mydata"].ToString());
 
             return View(modelos);

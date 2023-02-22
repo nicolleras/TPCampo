@@ -28,9 +28,9 @@ namespace TPCampo.Controllers
         public IActionResult Guardar(UsuarioModel oUsuario)
         {
             //Este metodo recibe un objeto y lo guarda en la db
-            if (!ModelState.IsValid)
-                return View();
-
+            //if (!ModelState.IsValid)
+            //    return View();
+            oUsuario.ConfirmarContraseña = "";
             var respuesta = _UsuarioDatos.Guardar(oUsuario);
 
             if (respuesta)

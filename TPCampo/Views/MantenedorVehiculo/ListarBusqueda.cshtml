@@ -50,6 +50,7 @@
                 </tr>
             </thead>
             <tbody>
+                @if(Model.vehiculosModel != null){
                 @foreach (var item in Model.vehiculosModel)
                 {
                     <tr>
@@ -73,6 +74,7 @@
 
                     </tr>
 
+                }
                 }
             </tbody>
         </table>

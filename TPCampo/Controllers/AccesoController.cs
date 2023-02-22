@@ -60,7 +60,7 @@ namespace TPCampo.Controllers
                  cmd.Parameters.AddWithValue("Apellido", oUsuario.Apellido);
                  cmd.Parameters.AddWithValue("Email", oUsuario.Email);
                  cmd.Parameters.AddWithValue("Contraseña", oUsuario.Contraseña);
-                 cmd.Parameters.AddWithValue("Rol", "");
+                 cmd.Parameters.AddWithValue("Rol", "Cliente");
                  cmd.Parameters.AddWithValue("FechaNacimiento", oUsuario.FechaNacimiento);
                  cmd.Parameters.AddWithValue("TipoDocumento", oUsuario.TipoDocumento);
                  cmd.Parameters.AddWithValue("Dni", oUsuario.Dni);
