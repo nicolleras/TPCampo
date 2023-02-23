@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging.Abstractions;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using TPCampo.Data;
 using TPCampo.Models;
 
@@ -23,7 +25,8 @@ namespace TPCampo.Controllers
         public IActionResult ListarBusqueda()
         {
             List<ReservaModel> rLista = _ReservaDatos.Listar();
-            var oLista = new List<VehiculoModel>();
+            List<VehiculoModel> oLista = null;
+            oLista = new List<VehiculoModel>();
             BuscarModel buscar = JsonConvert.DeserializeObject<BuscarModel>(TempData["mydata"].ToString());
 
             foreach (var item in rLista){
@@ -32,10 +35,13 @@ namespace TPCampo.Controllers
                 DateTime fechaInicioBusqueda = Convert.ToDateTime(buscar.FechaInicio);
                 DateTime fechaFinBusqueda = Convert.ToDateTime(buscar.FechaFin);
 
-                if ((fechaFinBusqueda < fechaInicioReserva) || (fechaFinReserva < fechaInicioBusqueda))
+                if ((fechaFinBusqueda < fechaInicioReserva) && (fechaFinReserva < fechaInicioBusqueda))
                 {
                     int idVehiculo = (int) item.IdVehiculo;
-                    oLista.Add(_VehiculoDatos.Obtener(idVehiculo));
+                    bool has = oLista.Any(x => x.IdVehiculo == idVehiculo);
+                    if (!has) { 
+                        oLista.Add(_VehiculoDatos.Obtener(idVehiculo));
+                    }
                 }
             }
 

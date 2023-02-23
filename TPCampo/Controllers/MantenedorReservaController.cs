@@ -92,7 +92,7 @@ namespace TPCampo.Controllers
             oReserva.Estado = "PENDIENTE";
             oReserva.MontoTotal = reservaParcial.MontoTotal;
             oReserva.IdVehiculo = reservaParcial.IdVehiculo;
-            oReserva.IdUsuario = 1;     
+            oReserva.IdUsuario = GlobalUser.IdUsuario;     
             
             var respuesta = _ReservaDatos.Guardar(oReserva);
 

@@ -113,8 +113,8 @@ namespace TPCampo.Controllers
 
              if (oUsuario.IdUsuario != 0)
              {
-                 return RedirectToAction("Index", "HomeUsuario");
-
+                GlobalUser.IdUsuario = oUsuario.IdUsuario;
+                return RedirectToAction("Index", "HomeUsuario");
              }
              else
              {
