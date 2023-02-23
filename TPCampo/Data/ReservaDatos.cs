@@ -179,5 +179,10 @@ namespace TPCampo.Data
             }
             return respuesta;
         }
+
+        /*internal PagoModel Obtener(int? idUsuario)
+        {
+            throw new NotImplementedException();
+        }*/
     }
 }
