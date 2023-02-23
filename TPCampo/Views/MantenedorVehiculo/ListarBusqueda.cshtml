@@ -5,79 +5,123 @@
     Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
 }
 
-<div class="card">
-    <div class="card-header">
-        Lista de Vehiculos Disponibles
-    </div>
+<!-- NEW -->
+
     <div class="card-body">
         <hr />
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>Marca</th>
-                    <th>Modelo</th>
-                    <th>Imagen</th>
-                    <th>PrecioPorDia</th>
-                    <th>
-                        Capacidad
-                        Pasajeros
-                    </th>
-                    <th>
-                        Capacidad
-                        Equipaje
-                    </th>
-                    <th>
-                        Tipo de
-                        Caja
-                    </th>
-                    <th>
-                        Cantidad de
-                        Puertas
-                    </th>
-                    <th>
-                        Aire
-                        Acondicionado
-                    </th>
-                    <th>
-                        Tipo de
-                        Cobertura
-                    </th>
-                    <th>KmHabilitado</th>
-                    <th>
-                        IdEmpresa
-                        Proveedora
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @if(Model.vehiculosModel != null){
-                @foreach (var item in Model.vehiculosModel)
-                {
-                    <tr>
-                        <td> @item.Marca</td>
-                        <td> @item.Modelo</td>
-                        <td> @item.Imagen</td>
-                        <td> @item.PrecioPorDia</td>
-                        <td> @item.CapacidadPasajeros</td>
-                        <td> @item.CapacidadEquipaje</td>
-                        <td> @item.TipoCaja</td>
-                        <td> @item.CantidadDePuertas</td>
-                        <td> @item.AireAcondicionado</td>
-                        <td> @item.TipoDeCobertura</td>
-                        <td> @item.KmHabilitado</td>
-                        <td> @item.IdEmpresaProveedora</td>
-
-                            <td>
-                            <a asp-action="ElegirReserva" asp-controller="MantenedorReserva" class="btn btn-success" asp-route-IdVehiculo="@item.IdVehiculo" asp-route-Destino="@Model.buscarModel.Destino" asp-route-FechaInicio="@Model.buscarModel.FechaInicio" asp-route-FechaFin="@Model.buscarModel.FechaFin" asp-route-PrecioPorDia="@item.PrecioPorDia">Reservar Vehiculo</a>
-                            </td>
-                      
-
-                    </tr>
-
-                }
-                }
-            </tbody>
-        </table>
-
+        <div class="row">
+            @if(Model.vehiculosModel != null){
+            @foreach (var item in Model.vehiculosModel)
+            {
+            <div class="col-6">
+                <div class="row">
+                    <div class="card col-6 card border-3 rounded-3 mb-3 ms-3">
+                        <img class="card-img-top mt-2"
+                            src="@Model.vehiculosModel.Find(vehiculo => vehiculo.IdVehiculo == @item.IdVehiculo).Imagen">
+                        <div class="card-body">
+                            <ul>
+                                <li> @item.Marca</li>
+                                <li> @item.Modelo</li>
+                                <li> @item.Imagen</li>
+                                <li> @item.PrecioPorDia</li>
+                                <li> @item.CapacidadPasajeros</li>
+                                <li> @item.CapacidadEquipaje</li>
+                                <li> @item.TipoCaja</td>
+                                <li> @item.CantidadDePuertas</li>
+                                <li> @item.AireAcondicionado</li>
+                                <li> @item.TipoDeCobertura</li>
+                                <li> @item.KmHabilitado</li>
+                                <li> @item.IdEmpresaProveedora</li>
+                                <li><a asp-action="ElegirReserva" asp-controller="MantenedorReserva"
+                                        class="btn btn-success" asp-route-IdVehiculo="@item.IdVehiculo"
+                                        asp-route-Destino="@Model.buscarModel.Destino"
+                                        asp-route-FechaInicio="@Model.buscarModel.FechaInicio"
+                                        asp-route-FechaFin="@Model.buscarModel.FechaFin"
+                                        asp-route-PrecioPorDia="@item.PrecioPorDia">Reservar Vehiculo</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+            }
+        </div>
     </div>
-</div>
+    
+<!-- OLD -->
+<!--     <div class="card">
+        <div class="card-header">
+            Lista de Vehiculos Disponibles
+        </div>
+        <div class="card-body">
+            <hr />
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Imagen</th>
+                        <th>PrecioPorDia</th>
+                        <th>
+                            Capacidad
+                            Pasajeros
+                        </th>
+                        <th>
+                            Capacidad
+                            Equipaje
+                        </th>
+                        <th>
+                            Tipo de
+                            Caja
+                        </th>
+                        <th>
+                            Cantidad de
+                            Puertas
+                        </th>
+                        <th>
+                            Aire
+                            Acondicionado
+                        </th>
+                        <th>
+                            Tipo de
+                            Cobertura
+                        </th>
+                        <th>KmHabilitado</th>
+                        <th>
+                            IdEmpresa
+                            Proveedora
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if(Model.vehiculosModel != null){
+                    @foreach (var item in Model.vehiculosModel)
+                    {
+                        <tr>
+                            <td> @item.Marca</td>
+                            <td> @item.Modelo</td>
+                            <td> @item.Imagen</td>
+                            <td> @item.PrecioPorDia</td>
+                            <td> @item.CapacidadPasajeros</td>
+                            <td> @item.CapacidadEquipaje</td>
+                            <td> @item.TipoCaja</td>
+                            <td> @item.CantidadDePuertas</td>
+                            <td> @item.AireAcondicionado</td>
+                            <td> @item.TipoDeCobertura</td>
+                            <td> @item.KmHabilitado</td>
+                            <td> @item.IdEmpresaProveedora</td>
+
+                                <td>
+                                <a asp-action="ElegirReserva" asp-controller="MantenedorReserva" class="btn btn-success" asp-route-IdVehiculo="@item.IdVehiculo" asp-route-Destino="@Model.buscarModel.Destino" asp-route-FechaInicio="@Model.buscarModel.FechaInicio" asp-route-FechaFin="@Model.buscarModel.FechaFin" asp-route-PrecioPorDia="@item.PrecioPorDia">Reservar Vehiculo</a>
+                                </td>
+                        
+
+                        </tr>
+
+                    }
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div> -->

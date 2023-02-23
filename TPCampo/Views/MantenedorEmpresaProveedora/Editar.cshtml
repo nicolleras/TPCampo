@@ -4,8 +4,42 @@
     ViewData["Title"] = "Editar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<!-- NEW -->
 
-<div class="card">
+    <div class="card">
+        <div class="card-header">
+            Editar
+        </div>
+        <div class="card-body">
+    
+            <form asp-action="Editar" asp-controller="MantenedorEmpresaProveedora" method="post">
+    
+                <input asp-for="IdEmpresaProveedora" type="hidden" class="form-control" />
+                <div class="mb-3 col-4">
+                    <label class="form-label">Nombre</label>
+                    <input asp-for="Nombre" type="text" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-4">
+                    <label class="form-label">Logo</label>
+                    <input asp-for="Logo" type="text" class="form-control" />
+                    <span asp-validation-for="Logo" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-4">
+                    <label class="form-label">CalificacionPromedio</label>
+                    <input asp-for="CalificacionPromedio" type="number" class="form-control" />
+                    <span asp-validation-for="CalificacionPromedio" class="text-danger"></span>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                <a asp-action="Listar" asp-controller="MantenedorEmpresaProveedora" class="btn btn-warning">Volver al listado</a>
+            </form>
+        </div>
+    </div>
+
+<!-- OLD -->
+
+<!-- <div class="card">
     <div class="card-header">
         Editar
     </div>
@@ -35,4 +69,4 @@
         </form>
     </div>
 </div>
-
+ -->

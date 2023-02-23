@@ -4,8 +4,78 @@
     ViewData["Title"] = "Editar";
     Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
 }
+<!-- NEW -->
+    <div class="col d-flex justify-content-center">
+        <div class="card col-9 p-2">
+            <div class="card-header">
+                CrearCuenta
+            </div>
+            <div class="card-body">
 
-<div class="card">
+                <form asp-action="Index" asp-controller="HomeUsuario" method="post" class="form">
+
+                    <input asp-for="IdUsuario" type="hidden" class="form-control" />
+                    <div class="col-4">
+                        <label class="form-label">Nombre</label>
+                        <input asp-for="Nombre" type="text" class="form-control" required />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label">Apellido</label>
+                        <input asp-for="Apellido" type="text" class="form-control" required />
+                        <span asp-validation-for="Apellido" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label">Email</label>
+                        <input asp-for="Email" type="text" placeholder="Por ejemplo, example@dominio.com"
+                            class="form-control" required />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label"> Contraseña</label>
+                        <input asp-for="Contraseña" type="password" class="form-control" required />
+                        <span asp-validation-for="Contraseña" class="text-danger"></span>
+                    </div>
+                    <div class="col-4 mb-2">
+                        <label class="form-label">Rol de Usuario</label><br>
+                        
+                        <input type="radio" id="cliente" name="rol" value="cliente">
+                        <label for="cliente"> Cliente</label><br>
+
+                        <input type="radio" id="administrador" name="rol" value="administrador">
+                        <label for="administrador"> Administrador</label><br>
+                        <span asp-validation-for="rol" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label">FechaNacimiento</label>
+                        <input asp-for="FechaNacimiento" type="date" class="form-control" required />
+                        <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+                    </div>
+                    <!--  <div class="mb-3">
+                    <label class="form-label">TipoDocumento</label>
+                    <input asp-for="TipoDocumento" type="text"  class="form-control" />
+                    <span asp-validation-for="TipoDocumento" class="text-danger"></span>
+                </div> -->
+                    <div class="col-4">
+                        <label class="form-label">Dni</label>
+                        <input asp-for="Dni" type="number" class="form-control" required />
+                        <span asp-validation-for="Dni" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label">Telefono</label>
+                        <input asp-for="Telefono" type="number" class="form-control" required />
+                        <span asp-validation-for="Telefono" class="text-danger"></span>
+                    </div>
+                    <div class="d-flex flex-row-reverse">
+                        <button type="submit" class="btn btn-primary ms-2">Crear cuenta</button>
+                        <a asp-action="Listar" asp-controller="Mantenedor" class="btn btn-warning">Volver al listado</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<!-- OLD -->
+<!-- <div class="card">
     <div class="card-header">
         Editar Usuario
     </div>
@@ -66,4 +136,4 @@
         </form>
     </div>
 </div>
-
+ -->
