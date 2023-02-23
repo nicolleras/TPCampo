@@ -9,11 +9,41 @@ namespace TPCampo.Controllers
     {
 
         PagoDatos _PagoDatos = new PagoDatos();
+        ReservaDatos _ReservaDatos = new ReservaDatos();
 
         public IActionResult Listar()
         {
             //Esta vista muestra la lista de Pagos
-            var oLista = _PagoDatos.Listar();
+            var rLista = _ReservaDatos.Listar();
+            var pLista = _PagoDatos.Listar();
+            var reservaLista = new List<ReservaModel>();
+            var oLista = new List<PagoModel>();
+
+            foreach (var item in rLista)
+            {
+                if (item.IdUsuario == GlobalUser.IdUsuario)
+                {
+                    reservaLista.Add(_ReservaDatos.Obtener((int)item.IdReserva));
+                }
+            }
+
+            if (reservaLista.Any())
+            {
+                foreach (var reservaItem in reservaLista)
+                {
+                    foreach (var pagoItem in pLista)
+                    {
+                        if (reservaItem.IdReserva == pagoItem.IdReserva)
+                        {
+                            bool has = oLista.Any(x => x.IdPago == pagoItem.IdPago);
+                            if (!has)
+                            {
+                                oLista.Add(_PagoDatos.Obtener(pagoItem.IdPago));
+                            }
+                        }
+                    }
+                }
+            }
 
             return View(oLista);
         }

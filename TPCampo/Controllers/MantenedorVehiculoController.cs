@@ -35,11 +35,20 @@ namespace TPCampo.Controllers
                 DateTime fechaInicioBusqueda = Convert.ToDateTime(buscar.FechaInicio);
                 DateTime fechaFinBusqueda = Convert.ToDateTime(buscar.FechaFin);
 
-                if ((fechaFinBusqueda < fechaInicioReserva) && (fechaFinReserva < fechaInicioBusqueda))
+                if ((fechaInicioReserva < fechaInicioBusqueda) && (fechaInicioReserva < fechaFinBusqueda))
                 {
                     int idVehiculo = (int) item.IdVehiculo;
                     bool has = oLista.Any(x => x.IdVehiculo == idVehiculo);
                     if (!has) { 
+                        oLista.Add(_VehiculoDatos.Obtener(idVehiculo));
+                    }
+                }
+                if ((fechaFinReserva < fechaInicioBusqueda) && (fechaFinReserva < fechaFinBusqueda))
+                {
+                    int idVehiculo = (int)item.IdVehiculo;
+                    bool has = oLista.Any(x => x.IdVehiculo == idVehiculo);
+                    if (!has)
+                    {
                         oLista.Add(_VehiculoDatos.Obtener(idVehiculo));
                     }
                 }
