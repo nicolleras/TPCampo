@@ -27,7 +27,9 @@ namespace TPCampo.Controllers
             List<ReservaModel> rLista = _ReservaDatos.Listar();
             List<VehiculoModel> oLista = null;
             oLista = new List<VehiculoModel>();
+            if(TempData.Count != 0) { 
             BuscarModel buscar = JsonConvert.DeserializeObject<BuscarModel>(TempData["mydata"].ToString());
+           
 
             foreach (var item in rLista){
                 DateTime fechaInicioReserva = Convert.ToDateTime(item.FechaInicio);
@@ -60,6 +62,11 @@ namespace TPCampo.Controllers
             modelos.buscarModel = JsonConvert.DeserializeObject<BuscarModel>(TempData["mydata"].ToString());
 
             return View(modelos);
+            }
+            else
+            {
+                return RedirectToAction("Buscar", "HomeUsuario");
+            }
         }
 
         public IActionResult Guardar()

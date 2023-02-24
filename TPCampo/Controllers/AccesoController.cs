@@ -124,6 +124,7 @@ namespace TPCampo.Controllers
              if (oUsuario.IdUsuario != 0)
              {
                 GlobalUser.IdUsuario = oUsuario.IdUsuario;
+                GlobalUser.Rol = oUsuario.Rol;
                 if (oUsuario.Rol == "Cliente")
                 {  
                     return RedirectToAction("Index", "HomeUsuario");

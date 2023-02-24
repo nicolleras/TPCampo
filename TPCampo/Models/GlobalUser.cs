@@ -5,6 +5,7 @@ namespace TPCampo.Models
     public class GlobalUser
     {
         public static int? IdUsuario { get; set; }
-        
+        public static string? Rol { get; set; }
+
     }
 }

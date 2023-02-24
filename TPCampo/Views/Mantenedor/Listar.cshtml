@@ -1,10 +1,11 @@
 ﻿@model List<UsuarioModel> //Clase a utilizar en el formulario
-
 @{
     ViewData["Title"] = "Listar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<!-- NEW -->
+
+
+    <!-- NEW -->
 
     <div class="row d-flex justify-content-center mt-2">
         <div class="card col-10">
@@ -23,7 +24,6 @@
                             <th>Contraseña</th>
                             <th>Rol de Usuario</th>
                             <th>FechaNacimiento</th>
-                            <th>TipoDocumento</th>
                             <th>Dni</th>
                             <th>Telefono</th>
                         </tr>
@@ -31,23 +31,22 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                        <tr>
-                            <td> @item.Nombre</td>
-                            <td> @item.Apellido</td>
-                            <td> @item.Email</td>
-                            <td> @item.Contraseña</td>
-                            <td> @item.Rol</td>
-                            <td> @item.FechaNacimiento</td>
-                            <td> @item.TipoDocumento</td>
-                            <td> @item.Dni</td>
-                            <td> @item.Telefono</td>
-                            <td>
-                                <a asp-action="Editar" asp-controller="Mantenedor" class="btn btn-primary btn-sm"
+                            <tr>
+                                <td> @item.Nombre</td>
+                                <td> @item.Apellido</td>
+                                <td> @item.Email</td>
+                                <td> @item.Contraseña.Substring(0,8)...</td>
+                                <td> @item.Rol</td>
+                                <td> @item.FechaNacimiento</td>
+                                <td> @item.Dni</td>
+                                <td> @item.Telefono</td>
+                                <td>
+                                    <a asp-action="Editar" asp-controller="Mantenedor" class="btn btn-primary btn-sm"
                                     asp-route-IdUsuario="@item.IdUsuario">Editar</a>
-                                <a asp-action="Eliminar" asp-controller="Mantenedor" class="btn btn-danger btn-sm"
+                                    <a asp-action="Eliminar" asp-controller="Mantenedor" class="btn btn-danger btn-sm"
                                     asp-route-IdUsuario="@item.IdUsuario">Eliminar</a>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
 
                         }
                     </tbody>
@@ -57,6 +56,7 @@
         </div>
 
     </div>
+
 
 <!-- OLD -->
 
