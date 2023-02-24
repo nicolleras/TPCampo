@@ -14,7 +14,7 @@
             <form asp-action="Guardar" asp-controller="MantenedorPago" method="post">
                 <div class="mb-3">
                     <label class="form-label">MontoFinal</label>
-                    <input asp-for="MontoFinal" type="text" step="any" requiredclass="form-control" value="@(ViewBag.montoTotal)" readonly />
+                    <input asp-for="MontoFinal" type="text" step="any" class="form-control" value="@(ViewBag.montoTotal)" readonly />
                     <span asp-validation-for="MontoFinal" class="text-danger"></span>
                 </div>
                 <div class="mb-3">

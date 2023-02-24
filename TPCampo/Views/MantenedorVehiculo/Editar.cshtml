@@ -36,7 +36,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">PrecioPorDia</label>
-                    <input asp-for="PrecioPorDia" type="number" ste="any" class="form-control" required />
+                    <input asp-for="PrecioPorDia" type="text" inputmode="numeric" step="0.01" class="form-control" required />
                     <span asp-validation-for="PrecioPorDia" class="text-danger"></span>
                 </div>
                 <div class="mb-3">

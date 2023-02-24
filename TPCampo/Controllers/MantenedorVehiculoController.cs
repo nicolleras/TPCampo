@@ -25,8 +25,8 @@ namespace TPCampo.Controllers
         public IActionResult ListarBusqueda()
         {
             List<ReservaModel> rLista = _ReservaDatos.Listar();
-            List<VehiculoModel> oLista = null;
-            oLista = new List<VehiculoModel>();
+            List<VehiculoModel> vehiculosLista = _VehiculoDatos.Listar();
+            var oLista = new List<VehiculoModel>();
             if(TempData.Count != 0) { 
             BuscarModel buscar = JsonConvert.DeserializeObject<BuscarModel>(TempData["mydata"].ToString());
            
@@ -36,23 +36,33 @@ namespace TPCampo.Controllers
                 DateTime fechaFinReserva = Convert.ToDateTime(item.FechaFin);
                 DateTime fechaInicioBusqueda = Convert.ToDateTime(buscar.FechaInicio);
                 DateTime fechaFinBusqueda = Convert.ToDateTime(buscar.FechaFin);
+                bool disponible = false;
+                int idVehiculo = (int)item.IdVehiculo;
 
-                if ((fechaInicioReserva < fechaInicioBusqueda) && (fechaInicioReserva < fechaFinBusqueda))
+                if ((fechaFinBusqueda < fechaInicioReserva))
                 {
-                    int idVehiculo = (int) item.IdVehiculo;
                     bool has = oLista.Any(x => x.IdVehiculo == idVehiculo);
                     if (!has) { 
                         oLista.Add(_VehiculoDatos.Obtener(idVehiculo));
                     }
+                        disponible = true;
                 }
-                if ((fechaFinReserva < fechaInicioBusqueda) && (fechaFinReserva < fechaFinBusqueda))
+                if ((fechaInicioBusqueda > fechaFinReserva))
                 {
-                    int idVehiculo = (int)item.IdVehiculo;
                     bool has = oLista.Any(x => x.IdVehiculo == idVehiculo);
                     if (!has)
                     {
                         oLista.Add(_VehiculoDatos.Obtener(idVehiculo));
                     }
+                        disponible = true;
+                }
+                if (!disponible)
+                {
+                        bool has = oLista.Any(x => x.IdVehiculo == idVehiculo);
+                        if (has)
+                        {
+                            oLista.Remove(_VehiculoDatos.Obtener(idVehiculo));
+                        }
                 }
             }
 
