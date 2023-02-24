@@ -62,7 +62,7 @@ namespace TPCampo.Controllers
                  cmd.Parameters.AddWithValue("Contraseña", oUsuario.Contraseña);
                  cmd.Parameters.AddWithValue("Rol", "Cliente");
                  cmd.Parameters.AddWithValue("FechaNacimiento", oUsuario.FechaNacimiento);
-                 cmd.Parameters.AddWithValue("TipoDocumento", oUsuario.TipoDocumento);
+                 cmd.Parameters.AddWithValue("TipoDocumento", "");
                  cmd.Parameters.AddWithValue("Dni", oUsuario.Dni);
                  cmd.Parameters.AddWithValue("Telefono", oUsuario.Telefono);
                  cmd.Parameters.Add("Registrado", SqlDbType.Bit).Direction = ParameterDirection.Output;
@@ -105,23 +105,38 @@ namespace TPCampo.Controllers
                  cmd.Parameters.AddWithValue("Email", oUsuario.Email);
                  cmd.Parameters.AddWithValue("Contraseña", oUsuario.Contraseña);
 
-                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                 oUsuario.IdUsuario = Convert.ToInt32(cmd.ExecuteScalar().ToString());             
-               
-            }
+                oUsuario.IdUsuario = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+
+                if (oUsuario.IdUsuario != 0)
+                {
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oUsuario.Rol = dr["Rol"].ToString();
+                        }
+                    }
+                }
+             }
 
              if (oUsuario.IdUsuario != 0)
              {
                 GlobalUser.IdUsuario = oUsuario.IdUsuario;
-                return RedirectToAction("Index", "HomeUsuario");
+                if (oUsuario.Rol == "Cliente")
+                {  
+                    return RedirectToAction("Index", "HomeUsuario");
+                }else
+                {
+                    return RedirectToAction("Listar", "Mantenedor");
+                }          
              }
              else
              {
                  ViewData["Mensaje"] = "Usuario no encontrado";
                  return View();
              }
-
          }
 
 

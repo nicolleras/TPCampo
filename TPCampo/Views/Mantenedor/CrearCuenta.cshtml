@@ -13,9 +13,8 @@
             </div>
             <div class="card-body">
 
-                <form asp-action="Index" asp-controller="HomeUsuario" method="post" class="form">
+                <form asp-action="Guardar" asp-controller="Mantenedor" method="post" class="form">
 
-                    <input asp-for="IdUsuario" type="hidden" class="form-control" />
                     <div class="col-4">
                         <label class="form-label">Nombre</label>
                         <input asp-for="Nombre" type="text" class="form-control" required />
@@ -39,13 +38,13 @@
                     </div>
                     <div class="col-4 mb-2">
                         <label class="form-label">Rol de Usuario</label><br>
-                        
-                        <input asp-for="rol" type="radio" id="cliente" name="rol" value="cliente">
+
+                    <input asp-for="Rol" type="radio" id="cliente" name="Rol" value="cliente">
                         <label for="cliente"> Cliente</label><br>
 
-                        <input asp-for="rol" type="radio" id="administrador" name="rol" value="administrador">
+                    <input asp-for="Rol" type="radio" id="administrador" name="Rol" value="administrador">
                         <label for="administrador"> Administrador</label><br>
-                        <span asp-validation-for="rol" class="text-danger"></span>
+                    <span asp-validation-for="Rol" class="text-danger"></span>
                     </div>
                     <div class="col-4">
                         <label class="form-label">FechaNacimiento</label>

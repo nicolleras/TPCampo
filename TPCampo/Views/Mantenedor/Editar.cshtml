@@ -9,11 +9,11 @@
     <div class="col d-flex justify-content-center">
         <div class="card col-9 p-2">
             <div class="card-header">
-                CrearCuenta
+                EditarCuenta
             </div>
             <div class="card-body">
 
-                <form asp-action="Index" asp-controller="HomeUsuario" method="post" class="form">
+                <form asp-action="Editar" asp-controller="Mantenedor" method="post">
 
                     <input asp-for="IdUsuario" type="hidden" class="form-control" />
                     <div class="col-4">
@@ -37,19 +37,17 @@
                         <input asp-for="Contraseña" type="password" class="form-control" required />
                         <span asp-validation-for="Contraseña" class="text-danger"></span>
                     </div>
-                    <div class="col-4 mb-2">
-                        <label class="form-label">Rol de Usuario</label><br>
-                        
-                        <input asp-for="rol" type="radio" id="cliente" name="rol" value="cliente">
-                        <label for="cliente"> Cliente</label><br>
-
-                        <input asp-for="rol" type="radio" id="administrador" name="rol" value="administrador">
-                        <label for="administrador"> Administrador</label><br>
-                        <span asp-validation-for="rol" class="text-danger"></span>
-                    </div>
+                <div class="mb-3">
+                    <label class="form-label">Rol</label><br>
+                    <input asp-for="Rol" type="radio" id="Administrador" name="Rol" value="Administrador">
+                    <label for="Rol"> Administrador</label><br>
+                    <input asp-for="Rol" type="radio" id="Cliente" name="Rol" value="Cliente">
+                    <label for="Rol"> Cliente</label><br>
+                    <span asp-validation-for="Rol" class="text-danger"></span>
+                </div>
                     <div class="col-4">
                         <label class="form-label">FechaNacimiento</label>
-                        <input asp-for="FechaNacimiento" type="date" class="form-control" required />
+                        <input asp-for="FechaNacimiento" type="text" class="form-control" required />
                         <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
                     </div>
                     <!--  <div class="mb-3">

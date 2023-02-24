@@ -149,7 +149,7 @@ create procedure [dbo].[sp_ValidarUsuario](
 as
 begin
 	if(exists(select * from [dbo].[USUARIO] where Email= @Email and Contraseña=@Contraseña))
-		select IdUsuario from [dbo].[USUARIO] where Email= @Email and Contraseña=@Contraseña
+		select IdUsuario,Rol from [dbo].[USUARIO] where Email= @Email and Contraseña=@Contraseña
 	else
 		select '0'
 end

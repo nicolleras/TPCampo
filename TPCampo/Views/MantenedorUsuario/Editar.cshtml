@@ -39,12 +39,12 @@
                     <div class="col-4 mb-2">
                         <label class="form-label">Rol de Usuario</label><br>
                         
-                        <input type="radio" id="cliente" name="rol" value="cliente">
+                        <input asp-for="Rol" type="radio" id="cliente" name="rol" value="cliente">
                         <label for="cliente"> Cliente</label><br>
 
-                        <input type="radio" id="administrador" name="rol" value="administrador">
+                    <input asp-for="Rol" type="radio" id="administrador" name="rol" value="administrador">
                         <label for="administrador"> Administrador</label><br>
-                        <span asp-validation-for="rol" class="text-danger"></span>
+                    <span asp-validation-for="Rol" class="text-danger"></span>
                     </div>
                     <div class="col-4">
                         <label class="form-label">FechaNacimiento</label>
