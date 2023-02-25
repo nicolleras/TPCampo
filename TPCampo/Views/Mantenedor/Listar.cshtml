@@ -41,7 +41,7 @@
                                 <td> @item.Dni</td>
                                 <td> @item.Telefono</td>
                                 <td>
-                                    <button asp-action="Editar" asp-controller="Mantenedor" asp-route-IdUsuario="@item.IdUsuario" class="edit-btn"><img src="~/edit-icon.png" class="edit-icon" title="editar"></img></button>
+                                    <a asp-action="Editar" asp-controller="Mantenedor" asp-route-IdUsuario="@item.IdUsuario" class="edit-btn"><img src="~/edit-icon.png" class="edit-icon" title="editar"></a>
 
                                     <button asp-action="Eliminar" asp-controller="Mantenedor" asp-route-IdUsuario="@item.IdUsuario" class="del-btn mb-1" title="eliminar">
                         <svg viewBox="0 0 15 17.5" height="17.5" width="15" xmlns="http://www.w3.org/2000/svg"
