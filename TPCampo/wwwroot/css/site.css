@@ -87,3 +87,29 @@ body {
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
     background-color: #c0392b !important;
 }
+
+.none-style-list {
+    list-style: none;
+    margin: 2px;
+}
+
+.card-oppacity-orange {
+    margin: 15px;
+    background-color: #e7cda4;
+    border: 1px solid white;
+    box-shadow: 5px 5px 20px grey;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.vehicle-card {
+    border-radius: 5px;
+}
+
+.towhite{
+    background: linear-gradient(to right, #e7cda4 , #ffff);
+}
+
+.megatitle {
+    font-size: 100px;
+}
