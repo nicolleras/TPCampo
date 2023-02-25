@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap");
+
 html {
     font-size: 14px;
     
@@ -111,5 +113,10 @@ body {
 }
 
 .megatitle {
-    font-size: 100px;
+    font-size: 80px;
+    font-family: "Raleway", sans-serif;
+}
+
+.vehicle-title {
+    font-size: 30px;
 }

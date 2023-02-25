@@ -11,11 +11,11 @@
 
         <div class="row card-oppacity-orange m-4 towhite">
             <div class="col-3">
-                <h4> BUSQUEDA </h4>
+                <h4> Tu búsqueda </h4>
                 <ul>
-                    <li> <u>Destino: </u></li>
-                    <li> <u>Fecha Inicio: </u></li>
-                    <li> <u>Fecha Fin: </u></li>
+                <li> <strong>Destino</strong>: @Model.buscarModel.Destino</li>
+                <li> <strong>Fecha Inicio</strong>: @Model.buscarModel.FechaInicio</li>
+                <li> <strong>Fecha Fin</strong>: @Model.buscarModel.FechaFin</li>
                 </ul>
             </div>
             <h1 class="col-8 d-flex flex-row-reverse megatitle p-0">DSTRAVEL</h1>
@@ -29,22 +29,22 @@
                 <div class="row">
                     <div class="card vehicle-card col-5 mb-3 ms-3">
                         <img class="card-img-top mt-2" src="@item.Imagen">
-                        <div class="card-body">
+                        <div class="card-body p-0">
                             <ul class="none-style-list">
-                                <li> <u>Modelo:</u> @item.Modelo</li>
-                                <li> <u>Marca:</u> @item.Marca</li>
-                                <li> <u>Precio:</u> $ @item.PrecioPorDia</li>
-                                <li> <u>Capacidad:</u> @item.CapacidadPasajeros</li>
-                                <li> <u>CapacidadEquipaje:</u> @item.CapacidadEquipaje</li>
-                                <li> <u>Caja:</u> @item.TipoCaja</li>
-                                <li> <u>Puertas:</u> @item.CantidadDePuertas</li>
-                                <li> <u>Aire Acondicionado:</u> @item.AireAcondicionado</li>
-                                <li> <u>Cobertura:</u> @item.TipoDeCobertura</li>
-                                <li> <u>Km habilitado:</u> @item.KmHabilitado</li>
-                                <li> <u>Empresa Proveedora:</u> @item.IdEmpresaProveedora</li>
+                                <li class="vehicle-title"> <strong>@item.Modelo</strong></li>
+                                <li> <strong>Marca</strong>: @item.Marca</li>
+                                    <li> <strong>Precio</strong>: $ @item.PrecioPorDia</li>
+                                    <li> <strong>Capacidad</strong>: @item.CapacidadPasajeros</li>
+                                    <li> <strong>Equipaje</strong>: @item.CapacidadEquipaje Kg</li>
+                                    <li> <strong>Caja</strong>: @item.TipoCaja</li>
+                                    <li> <strong>Puertas</strong>: @item.CantidadDePuertas</li>
+                                    <li> <strong>Aire Acondicionado</strong>: @item.AireAcondicionado</li>
+                                    <li> <strong>Cobertura</strong>: @item.TipoDeCobertura</li>
+                                    <li> <strong>Km habilitado</strong>: @item.KmHabilitado</li>
+                                    <li> <strong>Empresa Proveedora</strong>: @item.IdEmpresaProveedora</li>
                                 <li>
                                     <div class="d-flex flex-row-reverse"><a asp-action="ElegirReserva"
-                                            asp-controller="MantenedorReserva" class="btn btn-success btn-sm mt-2"
+                                            asp-controller="MantenedorReserva" class="btn btn-success btn-sm m-2"
                                             asp-route-IdVehiculo="@item.IdVehiculo"
                                             asp-route-Destino="@Model.buscarModel.Destino"
                                             asp-route-FechaInicio="@Model.buscarModel.FechaInicio"
@@ -61,12 +61,6 @@
             }
         </div>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - TPCampo
-        </div>
-    </footer>
     
 <!-- OLD -->
 <!--     <div class="card">
