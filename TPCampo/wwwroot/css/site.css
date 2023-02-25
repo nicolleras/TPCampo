@@ -246,3 +246,18 @@ body {
     opacity: 1;
     top: -160%;
   }
+
+.edit-btn {
+    background-color: transparent;
+    position: relative;
+    border: none;
+}
+
+.edit-icon {
+    height: 25px;
+}
+
+    .edit-icon:hover {
+        transform: scale(1.2);
+        transition: .2s linear;
+    }
