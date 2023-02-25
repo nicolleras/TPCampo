@@ -137,6 +137,7 @@ body {
   
   .add-btn:hover {
     width: 120px;
+    padding:2px 5px;
   }
   
   .add-btn::before,
@@ -170,6 +171,7 @@ body {
   .btn-txt {
     opacity: 0;
     transition: opacity 0.2s;
+    margin:2px;
   }
   
   .add-btn:hover::before,
