@@ -8,34 +8,50 @@
 <!-- NEW -->
 
     <div class="card-body">
+
+        <div class="row card-oppacity-orange m-4 towhite">
+            <div class="col-3">
+                <h4> BUSQUEDA </h4>
+                <ul>
+                    <li> <u>Destino: </u></li>
+                    <li> <u>Fecha Inicio: </u></li>
+                    <li> <u>Fecha Fin: </u></li>
+                </ul>
+            </div>
+            <h1 class="col-8 d-flex flex-row-reverse megatitle p-0">DSTRAVEL</h1>
+        </div>
         <hr />
-        <div class="row">
+        <div class="card-oppacity-orange">
             @if(Model.vehiculosModel != null){
             @foreach (var item in Model.vehiculosModel)
             {
             <div class="col-6">
                 <div class="row">
-                    <div class="card col-6 card border-3 rounded-3 mb-3 ms-3">
+                    <div class="card vehicle-card col-5 mb-3 ms-3">
                         <img class="card-img-top mt-2" src="@item.Imagen">
                         <div class="card-body">
-                            <ul>
-                                <li> @item.Marca</li>
-                                <li> @item.Modelo</li>
-                                <li> @item.PrecioPorDia</li>
-                                <li> @item.CapacidadPasajeros</li>
-                                <li> @item.CapacidadEquipaje</li>
-                                <li> @item.TipoCaja</li>
-                                <li> @item.CantidadDePuertas</li>
-                                <li> @item.AireAcondicionado</li>
-                                <li> @item.TipoDeCobertura</li>
-                                <li> @item.KmHabilitado</li>
-                                <li> @item.IdEmpresaProveedora</li>
-                                <li><a asp-action="ElegirReserva" asp-controller="MantenedorReserva"
-                                        class="btn btn-success" asp-route-IdVehiculo="@item.IdVehiculo"
-                                        asp-route-Destino="@Model.buscarModel.Destino"
-                                        asp-route-FechaInicio="@Model.buscarModel.FechaInicio"
-                                        asp-route-FechaFin="@Model.buscarModel.FechaFin"
-                                        asp-route-PrecioPorDia="@item.PrecioPorDia">Reservar Vehiculo</a></li>
+                            <ul class="none-style-list">
+                                <li> <u>Modelo:</u> @item.Modelo</li>
+                                <li> <u>Marca:</u> @item.Marca</li>
+                                <li> <u>Precio:</u> $ @item.PrecioPorDia</li>
+                                <li> <u>Capacidad:</u> @item.CapacidadPasajeros</li>
+                                <li> <u>CapacidadEquipaje:</u> @item.CapacidadEquipaje</li>
+                                <li> <u>Caja:</u> @item.TipoCaja</li>
+                                <li> <u>Puertas:</u> @item.CantidadDePuertas</li>
+                                <li> <u>Aire Acondicionado:</u> @item.AireAcondicionado</li>
+                                <li> <u>Cobertura:</u> @item.TipoDeCobertura</li>
+                                <li> <u>Km habilitado:</u> @item.KmHabilitado</li>
+                                <li> <u>Empresa Proveedora:</u> @item.IdEmpresaProveedora</li>
+                                <li>
+                                    <div class="d-flex flex-row-reverse"><a asp-action="ElegirReserva"
+                                            asp-controller="MantenedorReserva" class="btn btn-success btn-sm mt-2"
+                                            asp-route-IdVehiculo="@item.IdVehiculo"
+                                            asp-route-Destino="@Model.buscarModel.Destino"
+                                            asp-route-FechaInicio="@Model.buscarModel.FechaInicio"
+                                            asp-route-FechaFin="@Model.buscarModel.FechaFin"
+                                            asp-route-PrecioPorDia="@item.PrecioPorDia">Reservar Vehiculo</a>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -45,6 +61,12 @@
             }
         </div>
     </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - TPCampo
+        </div>
+    </footer>
     
 <!-- OLD -->
 <!--     <div class="card">
