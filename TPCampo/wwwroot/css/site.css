@@ -2,7 +2,7 @@
 
 html {
     font-size: 14px;
-    
+
 }
 
 @media (min-width: 768px) {
@@ -12,8 +12,8 @@ html {
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
@@ -64,10 +64,10 @@ body {
     color: white !important;
 }
 
-    .login_btn:focus {
-        box-shadow: none !important;
-        outline: 0px !important;
-    }
+.login_btn:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
 
 .login_container {
     padding: 0 2rem;
@@ -86,7 +86,7 @@ body {
     outline: 0px !important;
 }
 
-.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
     background-color: #c0392b !important;
 }
 
@@ -104,12 +104,12 @@ body {
     padding: 10px;
 }
 
-.vehicle-card {
+.item-card {
     border-radius: 5px;
 }
 
-.towhite{
-    background: linear-gradient(to right, #e7cda4 , #ffff);
+.towhite {
+    background: linear-gradient(to right, #e7cda4, #ffff);
 }
 
 .megatitle {
@@ -117,7 +117,7 @@ body {
     font-family: "Raleway", sans-serif;
 }
 
-.vehicle-title {
+.item-title {
     font-size: 30px;
 }
 
@@ -133,15 +133,15 @@ body {
     transition: width 0.2s ease-in-out;
     font-weight: 500;
     font-family: inherit;
-  }
-  
-  .add-btn:hover {
+}
+
+.add-btn:hover {
     width: 120px;
-    padding:2px 5px;
-  }
-  
-  .add-btn::before,
-  .add-btn::after {
+    padding: 2px 5px;
+}
+
+.add-btn::before,
+.add-btn::after {
     transition: width 0.2s ease-in-out, border-radius 0.2s ease-in-out;
     content: "";
     position: absolute;
@@ -149,43 +149,43 @@ body {
     width: 10px;
     top: calc(50% - 2px);
     background: seagreen;
-  }
-  
-  .add-btn::after {
+}
+
+.add-btn::after {
     right: 14px;
     overflow: hidden;
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
-  }
-  
-  .add-btn::before {
+}
+
+.add-btn::before {
     left: 14px;
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px;
-  }
-  
-  .icon-btn:focus {
+}
+
+.icon-btn:focus {
     outline: none;
-  }
-  
-  .btn-txt {
+}
+
+.btn-txt {
     opacity: 0;
     transition: opacity 0.2s;
-    margin:2px;
-  }
-  
-  .add-btn:hover::before,
-  .add-btn:hover::after {
+    margin: 2px;
+}
+
+.add-btn:hover::before,
+.add-btn:hover::after {
     width: 4px;
     border-radius: 2px;
-  }
-  
-  .add-btn:hover .btn-txt {
+}
+
+.add-btn:hover .btn-txt {
     opacity: 1;
-  }
-  
-  .add-icon::after,
-  .add-icon::before {
+}
+
+.add-icon::after,
+.add-icon::before {
     transition: all 0.2s ease-in-out;
     content: "";
     position: absolute;
@@ -194,58 +194,58 @@ body {
     top: calc(50% - 10px);
     background: seagreen;
     overflow: hidden;
-  }
-  
-  .add-icon::before {
+}
+
+.add-icon::before {
     left: 22px;
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px;
-  }
-  
-  .add-icon::after {
+}
+
+.add-icon::after {
     right: 22px;
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
-  }
-  
-  .add-btn:hover .add-icon::before {
+}
+
+.add-btn:hover .add-icon::before {
     left: 15px;
     height: 4px;
     top: calc(50% - 2px);
-  }
-  
-  .add-btn:hover .add-icon::after {
+}
+
+.add-btn:hover .add-icon::after {
     right: 15px;
     height: 4px;
     top: calc(50% - 2px);
-  }
+}
 
-  /* -------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------- */
 
-  .del-btn {
+.del-btn {
     background-color: transparent;
     position: relative;
     border: none;
-  }
-  
-  .icon {
+}
+
+.icon {
     transform: scale(1.2);
     transition: .2s linear;
-  }
-  
-  .del-btn:hover > .icon {
+}
+
+.del-btn:hover>.icon {
     transform: scale(1.5);
-  }
-  
-  .del-btn:hover > .icon path {
+}
+
+.del-btn:hover>.icon path {
     fill: rgb(168, 7, 7);
-  }
-  
-  .del-btn:hover::after {
+}
+
+.del-btn:hover::after {
     visibility: visible;
     opacity: 1;
     top: -160%;
-  }
+}
 
 .edit-btn {
     background-color: transparent;
@@ -257,7 +257,19 @@ body {
     height: 25px;
 }
 
-    .edit-icon:hover {
-        transform: scale(1.2);
-        transition: .2s linear;
-    }
+.edit-icon:hover {
+    transform: scale(1.2);
+    transition: .2s linear;
+}
+
+.goback-btn::hover {
+    transform: scale(1.2);
+    transition: .2s linear;
+}
+
+.search-card {
+    border: 1px solid white;
+    box-shadow: 5px 5px 15px #f39c12;
+    border-radius: 10px;
+    padding: 15px;
+}

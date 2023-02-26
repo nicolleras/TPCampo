@@ -27,11 +27,11 @@
                     {
                     @foreach (var item in Model)
                     {
-                    <div class="card col-3 vehicle-card mb-3 ms-3">
+                    <div class="card col-3 item-card mb-3 ms-3">
                         <img class="card-img-top mt-2" src="@item.Imagen">
                         <div class="card-body p-0">
                             <ul class="none-style-list">
-                                <li class="vehicle-title"> <strong>@item.Modelo</strong></li>
+                                <li class="item-title"> <strong>@item.Modelo</strong></li>
                                 <li> <strong>Marca</strong>: @item.Marca</li>
                                 <li> <strong>Precio</strong>: $ @item.PrecioPorDia</li>
                                 <li> <strong>Capacidad</strong>: @item.CapacidadPasajeros</li>

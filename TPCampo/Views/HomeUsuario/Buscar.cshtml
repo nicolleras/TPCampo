@@ -5,35 +5,43 @@
     Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
 }
 <!-- NEW -->
-    <div class="card">
-        <div class="card-header">
-            Buscar vehiculos disponibles
+    <div class="row d-flex justify-content-center mt-3">
+
+        <h1 class="megatitle d-flex justify-content-center"> DSTRAVEL </h1>
+
+        <div class="col-4 search-card card-oppacity-orange">
+            <div class="card-header d-flex justify-content-center mb-4">
+                <h4 class="subtitle">Buscar vehiculos disponibles</h4>
+            </div>
+            <div class="card-body">
+                <form asp-action="Buscar" asp-controller="MantenedorBuscar" class="form" method="post">
+
+                    <div class="m-2">
+                        <label class="form-label">Destino</label>
+                        <input asp-for="Destino" type="text" class="form-control" required />
+                        <span asp-validation-for="Destino" class="text-danger"></span>
+                    </div>
+                    <div class="m-2">
+                        <label class="form-label">FechaInicio</label>
+                        <input asp-for="FechaInicio" type="date" class="form-control" required />
+                        <span asp-validation-for="FechaInicio" class="text-danger"></span>
+                    </div>
+                    <div class="m-2">
+                        <label class="form-label">FechaFin</label>
+                        <input asp-for="FechaFin" type="date" class="form-control" required />
+                        <span asp-validation-for="FechaFin" class="text-danger"></span>
+                    </div>
+
+                    <br>
+                    <div class="d-flex flex-row-reverse">
+                        <button type="submit" class="btn">
+                            <img height="40px" width="40px" src="./search-icon.png" alt="" title="Buscar">
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="card-body row">
-    
-            <form asp-action="Buscar" asp-controller="MantenedorBuscar" class="form" method="post">
-    
-                <div class="col-6 col-md-3">
-                    <label class="form-label">Destino</label>
-                    <input asp-for="Destino" type="text" class="form-control" required/>
-                    <span asp-validation-for="Destino" class="text-danger"></span>
-                </div>
-                <div class="col-6 col-md-3">
-                    <label class="form-label">FechaInicio</label>
-                    <input asp-for="FechaInicio" type="date" class="form-control" required/>
-                    <span asp-validation-for="FechaInicio" class="text-danger"></span>
-                </div>
-                <div class="col-6 col-md-3">
-                    <label class="form-label">FechaFin</label>
-                    <input asp-for="FechaFin" type="date" class="form-control" required/>
-                    <span asp-validation-for="FechaFin" class="text-danger"></span>
-                </div>
-    
-                <br>
-                <button type="submit" class="btn btn-primary">Buscar</button>
-            </form>
-        </div>
-    </div>
+    </div>  
 
     <!-- OLD -->
 
