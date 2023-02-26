@@ -68,7 +68,7 @@ namespace TPCampo.Controllers
 
             Modelos modelos = new Modelos();
             //Esta vista muestra la lista de Vehiculos
-            modelos.vehiculosModel = oLista;
+            modelos.vehiculosModel = vehiculosLista;
             modelos.buscarModel = JsonConvert.DeserializeObject<BuscarModel>(TempData["mydata"].ToString());
 
             return View(modelos);
