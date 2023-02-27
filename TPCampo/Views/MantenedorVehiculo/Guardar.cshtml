@@ -17,9 +17,14 @@
                 <label class="input-group-text" for="inputGroupSelect01">Marca</label>
                 <select asp-for="Marca" class="form-select col-4" id="inputGroupSelect01">
                     <option selected>Choose...</option>
+                    <option value="ford">Ford</option>
                     <option value="renault">Renault</option>
                     <option value="chevrolet">Chevrolet</option>
                     <option value="fiat">Fiat</option>
+                    <option value="volkswagen">Volkswagen</option>
+                    <option value="toyota">Toyota</option>
+                    <option value="hyundai">Hyundai</option>
+
                 </select>
                 <span asp-validation-for="Marca" class="text-danger"></span>
             </div>
@@ -78,7 +83,7 @@
             </div>
 
             <div class="input-group mb-3 col-4">
-                <label class="input-group-text" for="inputGroupSelect01">IdEmpresaProveedora</label>
+                <label class="input-group-text" for="inputGroupSelect01">EmpresaProveedora</label>
                 <select asp-for="IdEmpresaProveedora" class="form-select col-4" id="inputGroupSelect01">
                     <option selected>Choose...</option>
 

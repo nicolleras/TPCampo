@@ -17,10 +17,14 @@
                 <div class="input-group mb-3 col-4">
                     <label class="input-group-text" for="inputGroupSelect01">Marca</label>
                     <select asp-for="Marca" class="form-select col-4" id="inputGroupSelect01">
-                      <option selected>Choose...</option>
-                      <option value="renault">Renault</option>
-                      <option value="chevrolet">Chevrolet</option>
-                      <option value="fiat">Fiat</option>
+                        <option selected>Choose...</option>
+                        <option value="ford">Ford</option>
+                        <option value="renault">Renault</option>
+                        <option value="chevrolet">Chevrolet</option>
+                        <option value="fiat">Fiat</option>
+                        <option value="volkswagen">Volkswagen</option>
+                        <option value="toyota">Toyota</option>
+                        <option value="hyundai">Hyundai</option>
                     </select>
                      <span asp-validation-for="Marca" class="text-danger"></span>
                   </div>
@@ -77,9 +81,17 @@
                     <input asp-for="KmHabilitado" type="number" step="any" class="form-control" required/>
                     <span asp-validation-for="KmHabilitado" class="text-danger"></span>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">IdEmpresaProveedora</label>
-                    <input asp-for="IdEmpresaProveedora" type="number" class="form-control" required/>
+                <div class="input-group mb-3 col-4">
+                    <label class="input-group-text" for="inputGroupSelect01">EmpresaProveedora</label>
+                    <select asp-for="IdEmpresaProveedora" class="form-select col-4" id="inputGroupSelect01">
+                        <option selected>Choose...</option>
+
+                        @foreach (var item in ViewBag.empresas)
+                        {
+                            <option value="@item.IdEmpresaProveedora">@item.Nombre</option>
+                        }
+
+                    </select>
                     <span asp-validation-for="IdEmpresaProveedora" class="text-danger"></span>
                 </div>
                 <br>

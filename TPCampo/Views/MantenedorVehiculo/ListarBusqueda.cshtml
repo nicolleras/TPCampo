@@ -23,44 +23,44 @@
         <hr />
         <div class="card-oppacity-orange">
             <div class="row flex-wrap justify-content-center">
-                @if(Model.vehiculosModel != null){
-            @foreach (var item in Model.vehiculosModel)
-            {
-                <div class="card col-3 item-card mb-3 ms-3">
-                    <img class="card-img-top mt-2" src="@item.Imagen">
-                    <div class="card-body p-0">
-                        <ul class="none-style-list">
-                            <li class="item-title"> <strong>@item.Modelo</strong></li>
-                            <li> <strong>Marca</strong>: @item.Marca</li>
-                            <li> <strong>Precio</strong>: $ @item.PrecioPorDia</li>
-                            <li> <strong>Capacidad</strong>: @item.CapacidadPasajeros</li>
-                            <li> <strong>Equipaje</strong>: @item.CapacidadEquipaje Kg</li>
-                            <li> <strong>Caja</strong>: @item.TipoCaja</li>
-                            <li> <strong>Puertas</strong>: @item.CantidadDePuertas</li>
-                            <li> <strong>Aire Acondicionado</strong>: @item.AireAcondicionado</li>
-                            <li> <strong>Cobertura</strong>: @item.TipoDeCobertura</li>
-                            <li> <strong>Km habilitado</strong>: @item.KmHabilitado</li>
-                                @foreach (var empresa in ViewBag.empresas)
-                                {
-                                    @if (@empresa.IdEmpresaProveedora == @item.IdEmpresaProveedora)
+             @if(Model.vehiculosModel != null){
+                @foreach (var item in Model.vehiculosModel)
+                {
+                    <div class="card col-3 item-card mb-3 ms-3">
+                        <img class="card-img-top mt-2" src="@item.Imagen">
+                        <div class="card-body p-0">
+                            <ul class="none-style-list">
+                                <li class="item-title"> <strong>@item.Modelo</strong></li>
+                                <li> <strong>Marca</strong>: @item.Marca</li>
+                                <li> <strong>Precio</strong>: $ @item.PrecioPorDia</li>
+                                <li> <strong>Capacidad</strong>: @item.CapacidadPasajeros</li>
+                                <li> <strong>Equipaje</strong>: @item.CapacidadEquipaje Kg</li>
+                                <li> <strong>Caja</strong>: @item.TipoCaja</li>
+                                <li> <strong>Puertas</strong>: @item.CantidadDePuertas</li>
+                                <li> <strong>Aire Acondicionado</strong>: @item.AireAcondicionado</li>
+                                <li> <strong>Cobertura</strong>: @item.TipoDeCobertura</li>
+                                <li> <strong>Km habilitado</strong>: @item.KmHabilitado</li>
+                                    @foreach (var empresa in ViewBag.empresas)
                                     {
-                                        <li> <strong>Empresa Proveedora</strong>: @empresa.Nombre</li>
+                                        @if (@empresa.IdEmpresaProveedora == @item.IdEmpresaProveedora)
+                                        {
+                                            <li> <strong>Empresa Proveedora</strong>: @empresa.Nombre</li>
+                                        }
                                     }
-                                }
-                                <li>
-                                <div class="d-flex flex-row-reverse"><a asp-action="ElegirReserva"
-                                        asp-controller="MantenedorReserva" class="btn btn-primary btn-sm m-2"
-                                        asp-route-IdVehiculo="@item.IdVehiculo"
-                                        asp-route-Destino="@Model.buscarModel.Destino"
-                                        asp-route-FechaInicio="@Model.buscarModel.FechaInicio"
-                                        asp-route-FechaFin="@Model.buscarModel.FechaFin"
-                                        asp-route-PrecioPorDia="@item.PrecioPorDia">Reservar</a>
-                                </div>
-                            </li>
-                        </ul>
+                                    <li>
+                                    <div class="d-flex flex-row-reverse"><a asp-action="ElegirReserva"
+                                            asp-controller="MantenedorReserva" class="btn btn-primary btn-sm m-2"
+                                            asp-route-IdVehiculo="@item.IdVehiculo"
+                                            asp-route-Destino="@Model.buscarModel.Destino"
+                                            asp-route-FechaInicio="@Model.buscarModel.FechaInicio"
+                                            asp-route-FechaFin="@Model.buscarModel.FechaFin"
+                                            asp-route-PrecioPorDia="@item.PrecioPorDia">Reservar</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            }
+                }
             }
             </div>
         </div>

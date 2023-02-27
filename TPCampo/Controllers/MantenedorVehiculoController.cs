@@ -90,35 +90,43 @@ namespace TPCampo.Controllers
 
                 }
 
-                foreach(var vehiculos in vehiculosLista)
+                foreach (var vehiculos in vehiculosLista)
                 {
-                    foreach (var vehiculo in listaIdVehiculos)
+                    if (listaIdVehiculos.Count() != 0)
                     {
-                        bool has = listaIdVehiculos.Any(x => x == vehiculos.IdVehiculo);
-                        if (!has)
+                        foreach (var vehiculo in listaIdVehiculos)
                         {
-                            oLista.Add(_VehiculoDatos.Obtener(vehiculos.IdVehiculo));
+                            bool has = listaIdVehiculos.Any(x => x == vehiculos.IdVehiculo);
+                            if (!has)
+                            {
+                                oLista.Add(_VehiculoDatos.Obtener(vehiculos.IdVehiculo));
+                            }
                         }
                     }
+                    else
+                    {
+                        oLista.Add(_VehiculoDatos.Obtener(vehiculos.IdVehiculo));
+                    }
+
                 }
 
                 oLista = oLista.DistinctBy(x => x.IdVehiculo).ToList();
 
                 Modelos modelos = new Modelos();
             //Esta vista muestra la lista de Vehiculos
-            modelos.vehiculosModel = oLista;
-            if (TempData.Count != 0)
-            {
-                modelos.buscarModel = JsonConvert.DeserializeObject<BuscarModel>(TempData["mydata"].ToString());
-            }
-            else
-            {
-                buscarModel.Destino = Destino;
-                buscarModel.FechaInicio = FechaInicio;
-                buscarModel.FechaFin = FechaFin;
-                modelos.buscarModel = buscarModel;
-            }
-            return View(modelos);
+                modelos.vehiculosModel = oLista;
+                if (TempData.Count != 0)
+                {
+                    modelos.buscarModel = JsonConvert.DeserializeObject<BuscarModel>(TempData["mydata"].ToString());
+                }
+                else
+                {
+                    buscarModel.Destino = Destino;
+                    buscarModel.FechaInicio = FechaInicio;
+                    buscarModel.FechaFin = FechaFin;
+                    modelos.buscarModel = buscarModel;
+                }
+                return View(modelos);
             }
             else
             {
@@ -153,13 +161,15 @@ namespace TPCampo.Controllers
 
         public IActionResult Editar(int IdVehiculo)
         {
-            //Esta vista muestra la lista de Usuarios
+            //Esta vista muestra la lista de vehiculos
+            ViewBag.empresas = _EmpresaProveedoraDatos.Listar();
             var oVehiculo = _VehiculoDatos.Obtener(IdVehiculo);
             return View(oVehiculo);
         }
         [HttpPost]
         public IActionResult Editar(VehiculoModel oVehiculo)
         {
+            ViewBag.empresas = _EmpresaProveedoraDatos.Listar();
             if (!ModelState.IsValid)
                 return View();
 
@@ -173,7 +183,7 @@ namespace TPCampo.Controllers
 
         public IActionResult Eliminar(int IdVehiculo)
         {
-            //Esta vista muestra la lista de Usuarios
+            //Esta vista muestra la lista de vehiculos
             var oVehiculo = _VehiculoDatos.Obtener(IdVehiculo);
             return View(oVehiculo);
         }
