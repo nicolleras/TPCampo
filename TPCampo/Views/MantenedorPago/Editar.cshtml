@@ -6,60 +6,73 @@
 }
 <!-- NEW -->
 
-    <div class="col m-2">
-        <div class="row card-oppacity-orange">
-            <div class="card-header">
-                <h4 class="subtitle">Editar</h4>
-            </div>
-            <div class="card-body">
-
-                <form asp-action="Editar" asp-controller="MantenedorReserva" method="post" class="form">
-
-                    <input asp-for="IdReserva" type="hidden" class="form-control" />
-                    <div class="mb-3 col-4">
-                        <label class="form-label">Destino</label>
-                        <input asp-for="Destino" type="text" class="form-control" required />
-                        <span asp-validation-for="Destino" class="text-danger"></span>
-                    </div>
-                    <div class="mb-3 col-4">
-                        <label class="form-label">FechaInicio</label>
-                        <input asp-for="FechaInicio" type="date" class="form-control" required />
-                        <span asp-validation-for="FechaInicio" class="text-danger"></span>
-                    </div>
-                    <div class="mb-3 col-4">
-                        <label class="form-label">FechaFin</label>
-                        <input asp-for="FechaFin" type="date" class="form-control" required />
-                        <span asp-validation-for="FechaFin" class="text-danger"></span>
-                    </div>
-                    <div class="mb-3 col-4">
-                        <label class="form-label">Estado</label>
-                        <input asp-for="Estado" type="text" class="form-control" required />
-                        <span asp-validation-for="Estado" class="text-danger"></span>
-                    </div>
-                    <div class="mb-3 col-4">
-                        <label class="form-label">MontoTotal</label>
-                        <input asp-for="MontoTotal" type="text" inputmode="numeric" step="0.01" class="form-control"
-                            required />
-                        <span asp-validation-for="MontoTotal" class="text-danger"></span>
-                    </div>
-                    <div class="mb-3 col-4">
-                        <label class="form-label">IdVehiculo</label>
-                        <input asp-for="IdVehiculo" type="number" class="form-control" required />
-                        <span asp-validation-for="IdVehiculo" class="text-danger"></span>
-                    </div>
-                    <div class="mb-3 col-4">
-                        <label class="form-label">IdUsuario</label>
-                        <input asp-for="IdUsuario" type="number" class="form-control" required />
-                        <span asp-validation-for="IdUsuario" class="text-danger"></span>
-                    </div>
-                    <br>
-                    <div class="d-flex flex-row-reverse">
-                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                        <a asp-action="Listar" asp-controller="MantenedorReserva" class="btn btn-warning">Volver al
-                            listado</a>
-                    </div>
-                </form>
-            </div>
+    <div class="card">
+    <div class="row card-oppacity-orange">
+        <div class="card-header">
+            Editar
+        </div>
+        <div class="card-body">
+    
+            <form asp-action="Editar" asp-controller="MantenedorPago" method="post">
+    
+                <input asp-for="IdPago" type="hidden" class="form-control" />
+                <div class="mb-3">
+                    <label class="form-label">MontoFinal</label>
+                    <input asp-for="MontoFinal" type="number" step="any" class="form-control" required/>
+                    <span asp-validation-for="MontoFinal" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Estado</label>
+                    <input asp-for="Estado" type="text" class="form-control" required/>
+                    <span asp-validation-for="Estado" class="text-danger"></span>
+                </div>
+                 <div class="mb-3">
+                    <label class="form-label">Servicio de Pago</label><br>
+                    <input asp-for="ServicioPago" type="radio" id="PRISMA" name="ServicioPago" value="PRISMA">
+                    <label for="ServicioPago"> PRISMA</label><br>
+                    <input asp-for="ServicioPago" type="radio" id="MERCADO_PAGO" name="ServicioPago" value="MERCADO_PAGO">
+                    <label for="ServicioPago"> MERCADO PAGO</label><br>
+                    <input asp-for="ServicioPago" type="radio" id="RAPIPAGO" name="ServicioPago" value="RAPIPAGO">
+                    <label for="ServicioPago"> RAPIPAGO</label><br>
+                    <input asp-for="ServicioPago" type="radio" id="PAGOFACIL" name="ServicioPago" value="PAGOFACIL">
+                    <label for="ServicioPago"> PAGOFACIL</label><br>
+                    <span asp-validation-for="ServicioPago" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">MedioPago</label>
+                    <input asp-for="MedioPago" type="text" class="form-control" required/>
+                    <span asp-validation-for="MedioPago" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">UltimosCuatro</label>
+                    <input asp-for="UltimosCuatro" type="number" class="form-control" required/>
+                    <span asp-validation-for="UltimosCuatro" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Cuotas</label>
+                    <input asp-for="Cuotas" type="number" class="form-control" required/>
+                    <span asp-validation-for="Cuotas" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">CodigoBarras</label>
+                    <input asp-for="CodigoBarras" type="text" class="form-control" required/>
+                    <span asp-validation-for="CodigoBarras" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Cvu</label>
+                    <input asp-for="Cvu" type="number" class="form-control" required/>
+                    <span asp-validation-for="Cvu" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">IdReserva</label>
+                    <input asp-for="IdReserva" type="text" class="form-control" required/>
+                    <span asp-validation-for="IdReserva" class="text-danger"></span>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                <a asp-action="Listar" asp-controller="MantenedorPago" class="btn btn-warning">Volver al listado</a>
+            </form>
+        </div>
         </div>
     </div>
 
