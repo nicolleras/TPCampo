@@ -60,6 +60,13 @@ namespace TPCampo.Controllers
         [HttpPost]
         public IActionResult Guardar(PagoModel oPago)
         {
+            var mf = oPago.MontoFinal;
+            var e = oPago.Estado;
+            var ir = oPago.IdReserva;
+
+            ViewBag.montoTotal = mf;
+            ViewBag.estado = e;
+            ViewBag.idReserva = ir;
             //Este metodo recibe un objeto y lo guarda en la db
             if (!ModelState.IsValid)
                 return View();

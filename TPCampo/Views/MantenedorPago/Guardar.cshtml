@@ -25,52 +25,51 @@
                         <span asp-validation-for="Estado" class="text-danger"></span>
                     </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Servicio de Pago</label><br>
-                    <input asp-for="ServicioPago" type="radio" id="PRISMA" name="ServicioPago" value="PRISMA">
-                    <label for="ServicioPago"> PRISMA</label><br>
-                    <input asp-for="ServicioPago" type="radio" id="MERCADO_PAGO" name="ServicioPago" value="MERCADO_PAGO">
-                    <label for="ServicioPago"> MERCADO PAGO</label><br>
-                    <input asp-for="ServicioPago" type="radio" id="RAPIPAGO" name="ServicioPago" value="RAPIPAGO">
-                    <label for="ServicioPago"> RAPIPAGO</label><br>
-                    <input asp-for="ServicioPago" type="radio" id="PAGOFACIL" name="ServicioPago" value="PAGOFACIL">
-                    <label for="ServicioPago"> PAGOFACIL</label><br>
+                <div class="input-group mb-3 col-4">
+                    <label class="input-group-text" for="inputGroupSelect01">Servicio de Pago</label>
+                    <select asp-for="ServicioPago" class="form-select col-4" id="inputGroupSelect01">
+                        <option selected>Choose...</option>
+                        <option value="PRISMA">PRISMA</option>
+                        <option value="MERCADO_PAGO">MERCADO PAGO</option>
+                        <option value="RAPIPAGO">RAPIPAGO</option>
+                        <option value="PAGOFACIL">PAGOFACIL</option>
+                    </select>
                     <span asp-validation-for="ServicioPago" class="text-danger"></span>
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Medio de Pago</label><br>
-                    <input asp-for="MedioPago" type="radio" id="CREDITO" name="MedioPago" value="CREDITO">
-                    <label for="MedioPago"> CREDITO</label><br>
-                    <input asp-for="MedioPago" type="radio" id="DEBITO" name="MedioPago" value="DEBITO">
-                    <label for="MedioPago"> DEBITO</label><br>
-                    <input asp-for="MedioPago" type="radio" id="EFECTIVO" name="MedioPago" value="EFECTIVO">
-                    <label for="MedioPago"> EFECTIVO</label><br>
+                <div class="input-group mb-3 col-4">
+                    <label class="input-group-text" for="inputGroupSelect01">Medio de Pago</label>
+                    <select asp-for="MedioPago" class="form-select col-4" id="inputGroupSelect01">
+                        <option selected>Choose...</option>
+                        <option value="CREDITO">CREDITO</option>
+                        <option value="DEBITO">DEBITO</option>
+                        <option value="EFECTIVO">EFECTIVO</option>
+                    </select>
                     <span asp-validation-for="MedioPago" class="text-danger"></span>
                 </div>
 
                     <div class="mb-3">
                         <label class="form-label">Ultimos Cuatro dígitos de la tarjeta</label>
-                        <input asp-for="UltimosCuatro" type="text" class="form-control" required />
+                        <input asp-for="UltimosCuatro" type="text" class="form-control" maxlength="4" />
                         <span asp-validation-for="UltimosCuatro" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Cuotas</label>
-                        <input asp-for="Cuotas" type="text" class="form-control" required />
+                    <input asp-for="Cuotas" type="text" class="form-control" maxlength="2" />
                         <span asp-validation-for="Cuotas" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">CodigoBarras</label>
-                        <input asp-for="CodigoBarras" type="text" class="form-control" required />
+                        <input asp-for="CodigoBarras" type="text" class="form-control" />
                         <span asp-validation-for="CodigoBarras" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Cvu</label>
-                        <input asp-for="Cvu" type="text" class="form-control" required />
+                        <label class="form-label">Cbu</label>
+                        <input asp-for="Cvu" type="text" class="form-control"/>
                         <span asp-validation-for="Cvu" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">IdReserva</label>
+                        <label class="form-label">Número de reserva</label>
                         <input asp-for="IdReserva" type="text" class="form-control" value="@(ViewBag.idReserva)"
                             readonly />
                         <span asp-validation-for="IdReserva" class="text-danger"></span>
