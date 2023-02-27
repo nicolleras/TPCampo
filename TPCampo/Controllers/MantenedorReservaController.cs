@@ -14,6 +14,7 @@ namespace TPCampo.Controllers
 
         ReservaDatos _ReservaDatos = new ReservaDatos();
         VehiculoDatos _VehiculoDatos = new VehiculoDatos();
+        UsuarioDatos _UsuarioDatos = new UsuarioDatos();
 
         public IActionResult Listar()
         {
@@ -22,6 +23,8 @@ namespace TPCampo.Controllers
             ModeloReservasVehiculos modelos = new ModeloReservasVehiculos();
             modelos.reservaModel = _ReservaDatos.Listar();
             modelos.vehiculosModel = _VehiculoDatos.Listar();
+            ViewBag.vehiculos = _VehiculoDatos.Listar();
+            ViewBag.usuarios = _UsuarioDatos.Listar();
 
             return View(modelos);
         }

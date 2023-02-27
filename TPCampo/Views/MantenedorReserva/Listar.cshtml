@@ -24,10 +24,22 @@
                                 <li class="item-title"> <strong> @item.Destino </strong></li>
                                 <li><strong>FechaInicio</strong>: @item.FechaInicio</li>
                                 <li><strong>FechaFin</strong>: @item.FechaFin</li>
-                                <li><strong>Estado</strong>: @item.Estado</li>
+                                    <li><strong>Estado</strong>: <strong>@item.Estado</strong></li>
                                 <li><strong>MontoTotal</strong>: @item.MontoTotal</li>
-                                <li><strong>IdVehiculo</strong>: @item.IdVehiculo</li>
-                                <li><strong>IdUsuario</strong>: @item.IdUsuario</li>
+                                    @foreach (var vehiculo in ViewBag.vehiculos)
+                                    {
+                                        @if (@vehiculo.IdVehiculo == @item.IdVehiculo)
+                                        {
+                                            <li> <strong>Vehiculo</strong>: @vehiculo.Modelo</li>
+                                        }
+                                    }
+                                    @foreach (var usuario in ViewBag.usuarios)
+                                    {
+                                        @if (@usuario.IdUsuario == @item.IdUsuario)
+                                        {
+                                            <li> <strong>Usuario</strong>: @usuario.Nombre</li>
+                                        }
+                                    }                                   
                                 <li>
                                     @if (@item.Estado == "PENDIENTE")
                                     {
@@ -35,11 +47,7 @@
                                         class="btn btn-primary btn-sm" asp-route-IdReserva="@item.IdReserva"
                                         asp-route-MontoTotal="@item.MontoTotal"
                                         asp-route-Estado="@item.Estado">Pagar</a>
-                                    }
-                                    <a asp-action="Editar" asp-controller="MantenedorReserva"
-                                        asp-route-IdReserva="item.IdReserva" class="edit-btn"><img src="~/edit-icon.png"
-                                            class="edit-icon" title="editar"></a>
-
+                                    
                                     <a asp-action="Eliminar" asp-controller="MantenedorReserva"
                                         asp-route-IdReserva="@item.IdReserva" class="del-btn mb-1" title="eliminar">
                                         <svg viewBox="0 0 15 17.5" height="17.5" width="15"
@@ -49,6 +57,7 @@
                                                 id="Fill"></path>
                                         </svg>
                                     </a>
+                                        }
                                 </li>
                             </ul>
                         </div>

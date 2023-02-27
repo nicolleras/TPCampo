@@ -24,7 +24,7 @@ PRIMARY KEY CLUSTERED
 GO
 SET IDENTITY_INSERT [dbo].[USUARIO] ON 
 GO
-INSERT [dbo].[USUARIO] ([IdUsuario], [Nombre], [Apellido], [Email], [Contraseña], [Rol], [FechaNacimiento], [TipoDocumento], [Dni], [Telefono]) VALUES (1, N'Nicolas', N'Pavoni', N'npavoni10@gmail.com', N'hola', N'Administrador', N'10/10/1990', N'Dni', 405558, 221999)
+INSERT [dbo].[USUARIO] ([IdUsuario], [Nombre], [Apellido], [Email], [Contraseña], [Rol], [FechaNacimiento], [TipoDocumento], [Dni], [Telefono]) VALUES (1, N'Nicolas', N'Pavoni', N'npavoni10@gmail.com', N'27e7db0a24cd4d5bf0805b940d5f5df64ff199035727d7bc818a448b8ebe1694', N'Administrador', N'10/10/1990', N'Dni', 405558, 221999)
 GO
 SET IDENTITY_INSERT [dbo].[USUARIO] OFF
 GO
