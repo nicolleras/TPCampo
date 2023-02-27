@@ -8,7 +8,7 @@
 
     <div class="col ms-2">
         <div class="card-header">
-            Editar
+            <h4 class="subtitle">Editar Reserva</h4>
         </div>
         <div class="card-body">
 
@@ -37,7 +37,7 @@
                 </div>
                 <div class="mb-3 col-4">
                     <label class="form-label">MontoTotal</label>
-                    <input asp-for="MontoTotal" type="number" step="any" class="form-control" required />
+                    <input asp-for="MontoTotal" type="text" inputmode="numeric" step="0.01" class="form-control" required />
                     <span asp-validation-for="MontoTotal" class="text-danger"></span>
                 </div>
                 <div class="mb-3 col-4">

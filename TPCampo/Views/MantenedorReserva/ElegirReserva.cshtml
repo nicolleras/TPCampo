@@ -4,29 +4,36 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="card">
-    <div class="card-header">
-        Reservar
-    </div>
-    <div class="card-body">
-
-        <form asp-action="ReservarConfirmar" asp-controller="MantenedorReserva" asp-route-IdVehiculo="@ViewBag.IdVehiculo" asp-route-Destino="@ViewBag.Destino" asp-route-FechaInicio="@ViewBag.FechaInicio" asp-route-FechaFin="@ViewBag.FechaFin" asp-route-MontoTotal="@ViewBag.MontoTotal" method="post">
-            <div>
-                Datos de la reserva
-                <ul>
-                    <li>Destino: @ViewBag.Destino</li>
-                    <li>FechaInicio: @ViewBag.FechaInicio</li>
-                    <li>FechaFin: @ViewBag.FechaFin</li>
-                    <li>MontoTotal: @ViewBag.MontoTotal</li>
-                </ul>
-
+    <div class="card m-3">
+        <div class="row card-oppacity-orange">
+            <div class="card-header">
+                Reservar
             </div>
-            <div class="alert alert-success" role="alert">
-                ¿Desea confirmar la reserva?
-            </div>
+            <div class="card-body">
 
-            <button type="submit" class="btn btn-primary" >Reservar</button>
-            <a asp-action="ListarBusqueda" asp-controller="MantenedorVehiculo" asp-route-Destino="@ViewBag.Destino" asp-route-FechaInicio="@ViewBag.FechaInicio" asp-route-FechaFin="@ViewBag.FechaFin" class="btn btn-warning">Volver al listado</a>
-        </form>
+                <form asp-action="ReservarConfirmar" asp-controller="MantenedorReserva"
+                    asp-route-IdVehiculo="@ViewBag.IdVehiculo" asp-route-Destino="@ViewBag.Destino"
+                    asp-route-FechaInicio="@ViewBag.FechaInicio" asp-route-FechaFin="@ViewBag.FechaFin"
+                    asp-route-MontoTotal="@ViewBag.MontoTotal" method="post">
+                    <div>
+                        Datos de la reserva
+                        <ul>
+                            <li>Destino: @ViewBag.Destino</li>
+                            <li>FechaInicio: @ViewBag.FechaInicio</li>
+                            <li>FechaFin: @ViewBag.FechaFin</li>
+                            <li>MontoTotal: @ViewBag.MontoTotal</li>
+                        </ul>
+
+                    </div>
+                    <div class="alert alert-success" role="alert">
+                        ¿Desea confirmar la reserva?
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Reservar</button>
+                    <a asp-action="ListarBusqueda" asp-controller="MantenedorVehiculo"
+                        asp-route-Destino="@ViewBag.Destino" asp-route-FechaInicio="@ViewBag.FechaInicio"
+                        asp-route-FechaFin="@ViewBag.FechaFin" class="btn btn-warning">Volver al listado</a>
+                </form>
+            </div>
+        </div>
     </div>
-</div>

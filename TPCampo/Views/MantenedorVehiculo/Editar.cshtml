@@ -5,99 +5,104 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!-- NEW -->
-    <div class="card">
-        <div class="card-header">
-            Editar
-        </div>
-        <div class="card-body col-4">
+    <div class="card m-3">
+        <div class="row card-oppacity-orange">
+            <div class="card-header">
+                <h4 class="subtitle">Editar Vehiculo</h4>
+            </div>
+            <div class="card-body col-4">
 
-            <form asp-action="Editar" asp-controller="MantenedorVehiculo" method="post">
+                <form asp-action="Editar" asp-controller="MantenedorVehiculo" method="post">
 
-                <input asp-for="IdVehiculo" type="hidden" class="form-control" />
-                <div class="input-group mb-3 col-4">
-                    <label class="input-group-text" for="inputGroupSelect01">Marca</label>
-                    <select asp-for="Marca" class="form-select col-4" id="inputGroupSelect01">
-                        <option selected>Choose...</option>
-                        <option value="ford">Ford</option>
-                        <option value="renault">Renault</option>
-                        <option value="chevrolet">Chevrolet</option>
-                        <option value="fiat">Fiat</option>
-                        <option value="volkswagen">Volkswagen</option>
-                        <option value="toyota">Toyota</option>
-                        <option value="hyundai">Hyundai</option>
-                    </select>
-                     <span asp-validation-for="Marca" class="text-danger"></span>
-                  </div>
-                <div class="mb-3">
-                    <label class="form-label">Modelo</label>
-                    <input asp-for="Modelo" type="text" class="form-control" required />
-                    <span asp-validation-for="Modelo" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Imagen</label>
-                    <input asp-for="Imagen" type="text" class="form-control" required />
-                    <span asp-validation-for="Imagen" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">PrecioPorDia</label>
-                    <input asp-for="PrecioPorDia" type="text" inputmode="numeric" step="0.01" class="form-control" required />
-                    <span asp-validation-for="PrecioPorDia" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">CapacidadPasajeros</label>
-                    <input asp-for="CapacidadPasajeros" type="number" class="form-control" required />
-                    <span asp-validation-for="CapacidadPasajeros" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">CapacidadEquipaje</label>
-                    <input asp-for="CapacidadEquipaje" type="number" class="form-control" required />
-                    <span asp-validation-for="CapacidadEquipaje" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">TipoCaja</label><br>
-                    <input asp-for="TipoCaja" type="radio" id="manual" name="TipoCaja" value="Manual">
-                    <label for="TipoCaja"> Manual</label><br>
-                    <input asp-for="TipoCaja" type="radio" id="automatico" name="TipoCaja" value="Automatico">
-                    <label for="TipoCaja"> Automatico</label><br>
-                    <span asp-validation-for="TipoCaja" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Cantidad De Puertas</label>
-                    <input asp-for="CantidadDePuertas" type="text" class="form-control" />
-                    <span asp-validation-for="CantidadDePuertas" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <input asp-for="AireAcondicionado" class="form-check-input mt-1 " type="checkbox" name="AireAcondicionado" value="true" aria-label="Checkbox for following text input">
-                    <label class="form-label"> Aire Acondicionado</label>
-                    <span asp-validation-for="AireAcondicionado" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Tipo De Cobertura</label>
-                    <input asp-for="TipoDeCobertura" type="text" class="form-control" required/>
-                    <span asp-validation-for="TipoDeCobertura" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Km Habilitado</label>
-                    <input asp-for="KmHabilitado" type="number" step="any" class="form-control" required/>
-                    <span asp-validation-for="KmHabilitado" class="text-danger"></span>
-                </div>
-                <div class="input-group mb-3 col-4">
-                    <label class="input-group-text" for="inputGroupSelect01">EmpresaProveedora</label>
-                    <select asp-for="IdEmpresaProveedora" class="form-select col-4" id="inputGroupSelect01">
-                        <option selected>Choose...</option>
+                    <input asp-for="IdVehiculo" type="hidden" class="form-control" />
+                    <div class="input-group mb-3 col-4">
+                        <label class="input-group-text" for="inputGroupSelect01">Marca</label>
+                        <select asp-for="Marca" class="form-select col-4" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="ford">Ford</option>
+                            <option value="renault">Renault</option>
+                            <option value="chevrolet">Chevrolet</option>
+                            <option value="fiat">Fiat</option>
+                            <option value="volkswagen">Volkswagen</option>
+                            <option value="toyota">Toyota</option>
+                            <option value="hyundai">Hyundai</option>
+                        </select>
+                        <span asp-validation-for="Marca" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Modelo</label>
+                        <input asp-for="Modelo" type="text" class="form-control" required />
+                        <span asp-validation-for="Modelo" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Imagen</label>
+                        <input asp-for="Imagen" type="text" class="form-control" required />
+                        <span asp-validation-for="Imagen" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">PrecioPorDia</label>
+                        <input asp-for="PrecioPorDia" type="text" inputmode="numeric" step="0.01" class="form-control"
+                            required />
+                        <span asp-validation-for="PrecioPorDia" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">CapacidadPasajeros</label>
+                        <input asp-for="CapacidadPasajeros" type="number" class="form-control" required />
+                        <span asp-validation-for="CapacidadPasajeros" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">CapacidadEquipaje</label>
+                        <input asp-for="CapacidadEquipaje" type="number" class="form-control" required />
+                        <span asp-validation-for="CapacidadEquipaje" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">TipoCaja</label><br>
+                        <input asp-for="TipoCaja" type="radio" id="manual" name="TipoCaja" value="Manual">
+                        <label for="TipoCaja"> Manual</label><br>
+                        <input asp-for="TipoCaja" type="radio" id="automatico" name="TipoCaja" value="Automatico">
+                        <label for="TipoCaja"> Automatico</label><br>
+                        <span asp-validation-for="TipoCaja" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Cantidad De Puertas</label>
+                        <input asp-for="CantidadDePuertas" type="text" class="form-control" />
+                        <span asp-validation-for="CantidadDePuertas" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <input asp-for="AireAcondicionado" class="form-check-input mt-1 " type="checkbox"
+                            name="AireAcondicionado" value="true" aria-label="Checkbox for following text input">
+                        <label class="form-label"> Aire Acondicionado</label>
+                        <span asp-validation-for="AireAcondicionado" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tipo De Cobertura</label>
+                        <input asp-for="TipoDeCobertura" type="text" class="form-control" required />
+                        <span asp-validation-for="TipoDeCobertura" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Km Habilitado</label>
+                        <input asp-for="KmHabilitado" type="number" step="any" class="form-control" required />
+                        <span asp-validation-for="KmHabilitado" class="text-danger"></span>
+                    </div>
+                    <div class="input-group mb-3 col-4">
+                        <label class="input-group-text" for="inputGroupSelect01">EmpresaProveedora</label>
+                        <select asp-for="IdEmpresaProveedora" class="form-select col-4" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
 
-                        @foreach (var item in ViewBag.empresas)
-                        {
+                            @foreach (var item in ViewBag.empresas)
+                            {
                             <option value="@item.IdEmpresaProveedora">@item.Nombre</option>
-                        }
+                            }
 
-                    </select>
-                    <span asp-validation-for="IdEmpresaProveedora" class="text-danger"></span>
-                </div>
-                <br>
-                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                <a asp-action="Listar" asp-controller="MantenedorVehiculo" class="btn btn-warning">Volver al listado</a>
-            </form>
+                        </select>
+                        <span asp-validation-for="IdEmpresaProveedora" class="text-danger"></span>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    <a asp-action="Listar" asp-controller="MantenedorVehiculo" class="btn btn-warning">Volver al
+                        listado</a>
+                </form>
+            </div>
         </div>
     </div>
 
