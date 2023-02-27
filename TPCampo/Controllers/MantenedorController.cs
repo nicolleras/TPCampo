@@ -12,6 +12,11 @@ namespace TPCampo.Controllers
 
         UsuarioDatos _UsuarioDatos = new UsuarioDatos();
 
+        public IActionResult HomeAdministrador()
+        {
+            return View();
+        }
+
         public IActionResult Listar()
         {
             //Esta vista muestra la lista de Usuarios
@@ -29,6 +34,19 @@ namespace TPCampo.Controllers
         [HttpPost]
         public IActionResult Guardar(UsuarioModel oUsuario)
         {
+
+            if (oUsuario.Contraseña == oUsuario.ConfirmarContraseña)
+            {
+
+                oUsuario.Contraseña = ConvertirSha256(oUsuario.Contraseña);
+
+            }
+            else
+            {
+                ViewData["Mensaje"] = "Las contraseñas no coinciden";
+                return View();
+            }
+
             //Este metodo recibe un objeto y lo guarda en la db
             //if (!ModelState.IsValid)
             //    return View();
@@ -39,27 +57,6 @@ namespace TPCampo.Controllers
 
             if (respuesta)
                 return RedirectToAction("Listar");
-            else
-                return View();
-        }
-
-        public IActionResult CrearUsuario()
-        {
-            //Esto devuelve solamente la vista, el formulario HTML
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult CrearUsuario(UsuarioModel oUsuario)
-        {
-            //Este metodo recibe un objeto y lo guarda en la db
-            if (!ModelState.IsValid)
-                return View();
-
-            var respuesta = _UsuarioDatos.Guardar(oUsuario);
-
-            if (respuesta)
-                return RedirectToAction("Index", "HomeUsuarioController");
             else
                 return View();
         }
@@ -78,26 +75,6 @@ namespace TPCampo.Controllers
             oUsuario.ConfirmarContraseña = "";
 
             var respuesta = _UsuarioDatos.Editar(oUsuario);
-
-            if (respuesta)
-                return RedirectToAction("Listar");
-            else
-                return View();
-        }
-
-        public IActionResult Login(int IdUsuario)
-        {
-            //Esta vista muestra la lista de Usuarios
-            var oUsuario = _UsuarioDatos.Obtener(IdUsuario);
-            return View(oUsuario);
-        }
-        [HttpPost]
-        public IActionResult Login(UsuarioModel oUsuario)
-        {
-            if (!ModelState.IsValid)
-                return View();
-
-            var respuesta = _UsuarioDatos.Login(oUsuario);
 
             if (respuesta)
                 return RedirectToAction("Listar");

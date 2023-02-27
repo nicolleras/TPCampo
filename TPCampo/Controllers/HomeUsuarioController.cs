@@ -18,10 +18,6 @@ namespace TPCampo.Controllers
             return View();
         }
 
-        public IActionResult Vehiculos()
-        {
-            return View();
-        }
         public IActionResult Contacto()
         {
             return View();

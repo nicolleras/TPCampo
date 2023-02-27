@@ -38,7 +38,7 @@ namespace TPCampo.Controllers
              bool registrado;
              string mensaje;
 
-             if (oUsuario.Contraseña == oUsuario.ConfirmarContraseña)
+            if (oUsuario.Contraseña == oUsuario.ConfirmarContraseña)
              {
 
                  oUsuario.Contraseña = ConvertirSha256(oUsuario.Contraseña);
@@ -132,7 +132,7 @@ namespace TPCampo.Controllers
                     return RedirectToAction("Index", "HomeUsuario");
                 }else
                 {
-                    return RedirectToAction("Listar", "Mantenedor");
+                    return RedirectToAction("HomeAdministrador", "Mantenedor");
                 }          
              }
              else
