@@ -4,51 +4,44 @@
     Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
 }
 
-    <div class="card m-3">
-        <div class="row card-oppacity-orange">
-            <div class="card-header">
+<div class="card m-3">
+    <div class="row card-oppacity-orange">
+        <div class="card-header">
+            <div class="d-flex flex-wrap">
+
+
             <div class="col-1">
-                            <a asp-action="ListarBusqueda" asp-controller="MantenedorVehiculo"
-                        asp-route-Destino="@ViewBag.Destino" asp-route-FechaInicio="@ViewBag.FechaInicio"
-                        asp-route-FechaFin="@ViewBag.FechaFin"><img src="~/goback-icon.png" alt="Volver" height="30px" width="20px"></a>
-                        </div>
-                        <div class="col-9">
-                            <h4 class="subtitle">Reservar</h4> 
-                        </div>
-                    </div>
+                <a asp-action="ListarBusqueda" asp-controller="MantenedorVehiculo"
+                asp-route-Destino="@ViewBag.Destino" asp-route-FechaInicio="@ViewBag.FechaInicio"
+                asp-route-FechaFin="@ViewBag.FechaFin"><img src="~/goback-icon.png" alt="Volver" height="30px" width="20px"></a>
             </div>
-            <div class="card-body">
-
-                <form asp-action="ReservarConfirmar" asp-controller="MantenedorReserva"
-                    asp-route-IdVehiculo="@ViewBag.IdVehiculo" asp-route-Destino="@ViewBag.Destino"
-                    asp-route-FechaInicio="@ViewBag.FechaInicio" asp-route-FechaFin="@ViewBag.FechaFin"
-                    asp-route-MontoTotal="@ViewBag.MontoTotal" method="post">
-                    <div>
-                        Datos de la reserva
-                        <ul>
-                            <li>Destino: @ViewBag.Destino</li>
-                            <li>FechaInicio: @ViewBag.FechaInicio</li>
-                            <li>FechaFin: @ViewBag.FechaFin</li>
-                            <li>MontoTotal: @ViewBag.MontoTotal</li>
-                        </ul>
-
-                    </div>
-                    <div class="alert alert-success" role="alert">
-                        ¿Desea confirmar la reserva?
-                    </div>
-
-                    <button type="submit confirm-button">
-                                <div class="svg-wrapper-1">
-                                    <div class="svg-wrapper">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                        <path fill="none" d="M0 0h24v24H0z"></path>
-                                        <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
-                                    </svg>
-                                    </div>
-                                </div>
-                                <span>Reservar</span>
-                            </button>
-                </form>
+            <div class="col-9">
+                 <h4 class="subtitle">Reservar</h4> 
             </div>
         </div>
+        </div>
     </div>
+    <div class="card-body">
+        <form asp-action="ReservarConfirmar" asp-controller="MantenedorReserva"
+            asp-route-IdVehiculo="@ViewBag.IdVehiculo" asp-route-Destino="@ViewBag.Destino"
+            asp-route-FechaInicio="@ViewBag.FechaInicio" asp-route-FechaFin="@ViewBag.FechaFin"
+            asp-route-MontoTotal="@ViewBag.MontoTotal" method="post">
+            <div>
+                Datos de la reserva
+                    <ul>
+                        <li>Destino: @ViewBag.Destino</li>
+                        <li>FechaInicio: @ViewBag.FechaInicio</li>
+                        <li>FechaFin: @ViewBag.FechaFin</li>
+                        <li>MontoTotal: @ViewBag.MontoTotal</li>
+                    </ul>
+            </div>
+            <div class="alert alert-success" role="alert">
+                ¿Desea confirmar la reserva?
+            </div>
+            <button type="submit" class="btn">
+                <img height="50px" width="50px" src="~/confirm-icon.png" alt="" title="Confirmar">
+            </button>
+        </form>
+    </div>
+</div>
+

@@ -43,10 +43,11 @@
                                 <li>
                                     @if (@item.Estado == "PENDIENTE")
                                     {
+                                        <div class="d-flex flex-row-reverse">
                                     <a asp-action="Guardar" asp-controller="MantenedorPago"
-                                        class="btn btn-primary btn-sm" asp-route-IdReserva="@item.IdReserva"
+                                        class="" asp-route-IdReserva="@item.IdReserva"
                                         asp-route-MontoTotal="@item.MontoTotal"
-                                        asp-route-Estado="@item.Estado"> <img src="~/buy-icon.png"></a>
+                                       asp-route-Estado="@item.Estado"> <img src="~/buy-icon.png" height="25" width="35" title="pagar"></a>
                                     
                                     <a asp-action="Eliminar" asp-controller="MantenedorReserva"
                                         asp-route-IdReserva="@item.IdReserva" class="del-btn mb-1" title="eliminar">
@@ -57,6 +58,7 @@
                                                 id="Fill"></path>
                                         </svg>
                                     </a>
+                                            </div>
                                         }
                                 </li>
                             </ul>
