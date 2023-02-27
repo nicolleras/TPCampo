@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging.Abstractions;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using TPCampo.Data;
 using TPCampo.Models;
@@ -13,11 +14,13 @@ namespace TPCampo.Controllers
 
         VehiculoDatos _VehiculoDatos = new VehiculoDatos();
         ReservaDatos _ReservaDatos = new ReservaDatos();
+        EmpresaProveedoraDatos _EmpresaProveedoraDatos = new EmpresaProveedoraDatos();
 
         public IActionResult Listar()
         {
             //Esta vista muestra la lista de Vehiculos
             var oLista = _VehiculoDatos.Listar();
+            ViewBag.empresas = _EmpresaProveedoraDatos.Listar();
 
             return View(oLista);
         }
@@ -26,49 +29,70 @@ namespace TPCampo.Controllers
         {
             List<ReservaModel> rLista = _ReservaDatos.Listar();
             List<VehiculoModel> vehiculosLista = _VehiculoDatos.Listar();
+            List<int> listaIdVehiculos = new List<int>(); 
             var oLista = new List<VehiculoModel>();
             if(TempData.Count != 0) { 
             BuscarModel buscar = JsonConvert.DeserializeObject<BuscarModel>(TempData["mydata"].ToString());
-           
 
-            foreach (var item in rLista){
-                DateTime fechaInicioReserva = Convert.ToDateTime(item.FechaInicio);
-                DateTime fechaFinReserva = Convert.ToDateTime(item.FechaFin);
-                DateTime fechaInicioBusqueda = Convert.ToDateTime(buscar.FechaInicio);
-                DateTime fechaFinBusqueda = Convert.ToDateTime(buscar.FechaFin);
-                bool disponible = false;
-                int idVehiculo = (int)item.IdVehiculo;
+                var fechaInicioBusqueda = DateTime.ParseExact(buscar.FechaInicio,"yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None);
+                var fechaFinBusqueda = DateTime.ParseExact(buscar.FechaFin, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None);
 
-                if ((fechaFinBusqueda < fechaInicioReserva))
+                foreach (var reserva in rLista)
                 {
-                    bool has = oLista.Any(x => x.IdVehiculo == idVehiculo);
-                    if (!has) { 
-                        oLista.Add(_VehiculoDatos.Obtener(idVehiculo));
-                    }
-                        disponible = true;
-                }
-                if ((fechaInicioBusqueda > fechaFinReserva))
-                {
-                    bool has = oLista.Any(x => x.IdVehiculo == idVehiculo);
-                    if (!has)
-                    {
-                        oLista.Add(_VehiculoDatos.Obtener(idVehiculo));
-                    }
-                        disponible = true;
-                }
-                if (!disponible)
-                {
-                        bool has = oLista.Any(x => x.IdVehiculo == idVehiculo);
-                        if (has)
+                    var fechaInicioReserva = DateTime.ParseExact(reserva.FechaInicio, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None);
+                    var fechaFinReserva = DateTime.ParseExact(reserva.FechaFin, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None);
+                    int idVehiculo = (int)reserva.IdVehiculo;
+                    bool disponible = false;
+
+                        if ((fechaFinBusqueda < fechaInicioReserva))
                         {
-                            oLista.Remove(_VehiculoDatos.Obtener(idVehiculo));
+                            bool has = oLista.Any(x => x.IdVehiculo == idVehiculo);
+                            if (!has)
+                            {
+                                oLista.Add(_VehiculoDatos.Obtener(idVehiculo));
+                            }
+                            disponible = true;
                         }
+                        if ((fechaInicioBusqueda > fechaFinReserva))
+                        {
+                            bool has = oLista.Any(x => x.IdVehiculo == idVehiculo);
+                            if (!has)
+                            {
+                                oLista.Add(_VehiculoDatos.Obtener(idVehiculo));
+                            }
+                            disponible = true;
+                        }
+                        if (!disponible)
+                        {
+                            bool has = oLista.Any(x => x.IdVehiculo == idVehiculo);
+                            if (has)
+                            {
+                                oLista.Remove(_VehiculoDatos.Obtener(idVehiculo));
+                            }
+                        }
+                        bool tiene = listaIdVehiculos.Any(x => x == idVehiculo);
+                        if (!tiene)
+                        {
+                            listaIdVehiculos.Add(idVehiculo);
+                        }
+
                 }
-            }
+
+                foreach(var vehiculos in vehiculosLista)
+                {
+                    foreach (var vehiculo in listaIdVehiculos)
+                    {
+                        bool has = listaIdVehiculos.Any(x => x == vehiculos.IdVehiculo);
+                        if (!has)
+                        {
+                            oLista.Add(_VehiculoDatos.Obtener(vehiculos.IdVehiculo));
+                        }
+                    }
+                }
 
             Modelos modelos = new Modelos();
             //Esta vista muestra la lista de Vehiculos
-            modelos.vehiculosModel = vehiculosLista;
+            modelos.vehiculosModel = oLista;
             modelos.buscarModel = JsonConvert.DeserializeObject<BuscarModel>(TempData["mydata"].ToString());
 
             return View(modelos);
@@ -82,15 +106,19 @@ namespace TPCampo.Controllers
         public IActionResult Guardar()
         {
             //Esto devuelve solamente la vista, el formulario HTML
+            ViewBag.empresas = _EmpresaProveedoraDatos.Listar(); 
             return View();
         }
 
         [HttpPost]
         public IActionResult Guardar(VehiculoModel oVehiculo)
         {
+            ViewBag.empresas = _EmpresaProveedoraDatos.Listar();
+
             //Este metodo recibe un objeto y lo guarda en la db
             if (!ModelState.IsValid)
                 return View();
+
 
             var respuesta = _VehiculoDatos.Guardar(oVehiculo);
 

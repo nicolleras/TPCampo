@@ -41,7 +41,12 @@
                                 <li> <strong>Aire Acondicionado</strong>: @item.AireAcondicionado</li>
                                 <li> <strong>Cobertura</strong>: @item.TipoDeCobertura</li>
                                 <li> <strong>Km habilitado</strong>: @item.KmHabilitado</li>
-                                <li> <strong>Empresa Proveedora</strong>: @item.IdEmpresaProveedora</li>
+                                @foreach(var empresa in ViewBag.empresas){
+                                        @if (@empresa.IdEmpresaProveedora == @item.IdEmpresaProveedora)
+                                        {
+                                            <li> <strong>Empresa Proveedora</strong>: @empresa.Nombre</li>
+                                        }                                 
+                                }  
                                 <li>
                                     <div class="d-flex flex-row-reverse">
                                         <a asp-action="Editar" asp-controller="MantenedorVehiculo"
