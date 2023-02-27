@@ -26,7 +26,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary" >Reservar</button>
-            <a asp-action="Listar" asp-controller="MantenedorReserva" class="btn btn-warning">Volver al listado</a>
+            <a asp-action="ListarBusqueda" asp-controller="MantenedorVehiculo" asp-route-Destino="@ViewBag.Destino" asp-route-FechaInicio="@ViewBag.FechaInicio" asp-route-FechaFin="@ViewBag.FechaFin" class="btn btn-warning">Volver al listado</a>
         </form>
     </div>
 </div>

@@ -25,18 +25,29 @@ namespace TPCampo.Controllers
             return View(oLista);
         }
 
-        public IActionResult ListarBusqueda()
+        public IActionResult ListarBusqueda(string? Destino, string? FechaInicio, string? FechaFin)
         {
             ViewBag.empresas = _EmpresaProveedoraDatos.Listar();
             List<ReservaModel> rLista = _ReservaDatos.Listar();
             List<VehiculoModel> vehiculosLista = _VehiculoDatos.Listar();
             List<int> listaIdVehiculos = new List<int>(); 
             var oLista = new List<VehiculoModel>();
-            if(TempData.Count != 0) { 
-            BuscarModel buscar = JsonConvert.DeserializeObject<BuscarModel>(TempData["mydata"].ToString());
+            DateTime? fechaInicioBusqueda = null;
+            DateTime? fechaFinBusqueda = null;
+            BuscarModel buscarModel = new BuscarModel();
+            if (TempData.Count != 0 || FechaInicio != null) { 
 
-                var fechaInicioBusqueda = DateTime.ParseExact(buscar.FechaInicio,"yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None);
-                var fechaFinBusqueda = DateTime.ParseExact(buscar.FechaFin, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None);
+                if(TempData.Count != 0)
+                {
+                    BuscarModel buscar = JsonConvert.DeserializeObject<BuscarModel>(TempData["mydata"].ToString());
+                    fechaInicioBusqueda = DateTime.ParseExact(buscar.FechaInicio, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None);
+                    fechaFinBusqueda = DateTime.ParseExact(buscar.FechaFin, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None);
+                }
+                else
+                {
+                    fechaInicioBusqueda = DateTime.ParseExact(FechaInicio, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None);
+                    fechaFinBusqueda = DateTime.ParseExact(FechaFin, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None);
+                }
 
                 foreach (var reserva in rLista)
                 {
@@ -91,11 +102,22 @@ namespace TPCampo.Controllers
                     }
                 }
 
-            Modelos modelos = new Modelos();
+                oLista = oLista.DistinctBy(x => x.IdVehiculo).ToList();
+
+                Modelos modelos = new Modelos();
             //Esta vista muestra la lista de Vehiculos
             modelos.vehiculosModel = oLista;
-            modelos.buscarModel = JsonConvert.DeserializeObject<BuscarModel>(TempData["mydata"].ToString());
-
+            if (TempData.Count != 0)
+            {
+                modelos.buscarModel = JsonConvert.DeserializeObject<BuscarModel>(TempData["mydata"].ToString());
+            }
+            else
+            {
+                buscarModel.Destino = Destino;
+                buscarModel.FechaInicio = FechaInicio;
+                buscarModel.FechaFin = FechaFin;
+                modelos.buscarModel = buscarModel;
+            }
             return View(modelos);
             }
             else

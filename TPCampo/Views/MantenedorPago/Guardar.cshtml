@@ -9,7 +9,7 @@
     <div class="card">
         <div class="row card-oppacity-orange">
             <div class="card-header">
-                Crear Pago
+                ¿Cómo querés pagar?
             </div>
             <div class="card-body">
                 <form asp-action="Guardar" asp-controller="MantenedorPago" method="post">
@@ -24,18 +24,33 @@
                         <input asp-for="Estado" type="text" class="form-control" value="@(ViewBag.estado)" readonly />
                         <span asp-validation-for="Estado" class="text-danger"></span>
                     </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Servicio de Pago</label><br>
+                    <input asp-for="ServicioPago" type="radio" id="PRISMA" name="ServicioPago" value="PRISMA">
+                    <label for="ServicioPago"> PRISMA</label><br>
+                    <input asp-for="ServicioPago" type="radio" id="MERCADO_PAGO" name="ServicioPago" value="MERCADO_PAGO">
+                    <label for="ServicioPago"> MERCADO PAGO</label><br>
+                    <input asp-for="ServicioPago" type="radio" id="RAPIPAGO" name="ServicioPago" value="RAPIPAGO">
+                    <label for="ServicioPago"> RAPIPAGO</label><br>
+                    <input asp-for="ServicioPago" type="radio" id="PAGOFACIL" name="ServicioPago" value="PAGOFACIL">
+                    <label for="ServicioPago"> PAGOFACIL</label><br>
+                    <span asp-validation-for="ServicioPago" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Medio de Pago</label><br>
+                    <input asp-for="MedioPago" type="radio" id="CREDITO" name="MedioPago" value="CREDITO">
+                    <label for="MedioPago"> CREDITO</label><br>
+                    <input asp-for="MedioPago" type="radio" id="DEBITO" name="MedioPago" value="DEBITO">
+                    <label for="MedioPago"> DEBITO</label><br>
+                    <input asp-for="MedioPago" type="radio" id="EFECTIVO" name="MedioPago" value="EFECTIVO">
+                    <label for="MedioPago"> EFECTIVO</label><br>
+                    <span asp-validation-for="MedioPago" class="text-danger"></span>
+                </div>
+
                     <div class="mb-3">
-                        <label class="form-label">ServicioPago</label>
-                        <input asp-for="ServicioPago" type="text" class="form-control" required />
-                        <span asp-validation-for="ServicioPago" class="text-danger"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">MedioPago</label>
-                        <input asp-for="MedioPago" type="text" class="form-control" required />
-                        <span asp-validation-for="MedioPago" class="text-danger"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">UltimosCuatro</label>
+                        <label class="form-label">Ultimos Cuatro dígitos de la tarjeta</label>
                         <input asp-for="UltimosCuatro" type="text" class="form-control" required />
                         <span asp-validation-for="UltimosCuatro" class="text-danger"></span>
                     </div>
