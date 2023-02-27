@@ -27,6 +27,7 @@ namespace TPCampo.Controllers
 
         public IActionResult ListarBusqueda()
         {
+            ViewBag.empresas = _EmpresaProveedoraDatos.Listar();
             List<ReservaModel> rLista = _ReservaDatos.Listar();
             List<VehiculoModel> vehiculosLista = _VehiculoDatos.Listar();
             List<int> listaIdVehiculos = new List<int>(); 
