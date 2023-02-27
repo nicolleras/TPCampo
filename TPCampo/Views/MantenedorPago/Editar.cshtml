@@ -6,80 +6,89 @@
 }
 <!-- NEW -->
 
-    <div class="card">
-    <div class="row card-oppacity-orange">
-        <div class="card-header">
-            Editar
+        <div class="card">
+        <div class="row card-oppacity-orange">
+            <div class="card-header">
+                <div class="row d-flex flex-wrap">
+                    <div class="col-1">
+                        <a asp-action="Listar" asp-controller="MantenedorPago"><img src="~/goback-icon.png" alt="Volver" height="30px" width="20px"></a>
+                    </div>
+                    <div class="col-9">
+                        <h4 class="subtitle">Editar</h4> 
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card-body">
-    
-            <form asp-action="Editar" asp-controller="MantenedorPago" method="post">
-    
-                <input asp-for="IdPago" type="hidden" class="form-control" />
-                <div class="mb-3">
-                    <label class="form-label">MontoFinal</label>
-                    <input asp-for="MontoFinal" type="number" step="any" class="form-control" required/>
-                    <span asp-validation-for="MontoFinal" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Estado</label>
-                    <input asp-for="Estado" type="text" class="form-control" required/>
-                    <span asp-validation-for="Estado" class="text-danger"></span>
-                </div>
-                 <div class="mb-3">
-                    <label class="form-label">Servicio de Pago</label><br>
-                    <input asp-for="ServicioPago" type="radio" id="PRISMA" name="ServicioPago" value="PRISMA">
-                    <label for="ServicioPago"> PRISMA</label><br>
-                    <input asp-for="ServicioPago" type="radio" id="MERCADO_PAGO" name="ServicioPago" value="MERCADO_PAGO">
-                    <label for="ServicioPago"> MERCADO PAGO</label><br>
-                    <input asp-for="ServicioPago" type="radio" id="RAPIPAGO" name="ServicioPago" value="RAPIPAGO">
-                    <label for="ServicioPago"> RAPIPAGO</label><br>
-                    <input asp-for="ServicioPago" type="radio" id="PAGOFACIL" name="ServicioPago" value="PAGOFACIL">
-                    <label for="ServicioPago"> PAGOFACIL</label><br>
-                    <span asp-validation-for="ServicioPago" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">MedioPago</label>
-                    <input asp-for="MedioPago" type="text" class="form-control" required/>
-                    <span asp-validation-for="MedioPago" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">UltimosCuatro</label>
-                    <input asp-for="UltimosCuatro" type="number" class="form-control" required/>
-                    <span asp-validation-for="UltimosCuatro" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Cuotas</label>
-                    <input asp-for="Cuotas" type="number" class="form-control" required/>
-                    <span asp-validation-for="Cuotas" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">CodigoBarras</label>
-                    <input asp-for="CodigoBarras" type="text" class="form-control" required/>
-                    <span asp-validation-for="CodigoBarras" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Cvu</label>
-                    <input asp-for="Cvu" type="number" class="form-control" required/>
-                    <span asp-validation-for="Cvu" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">IdReserva</label>
-                    <input asp-for="IdReserva" type="text" class="form-control" required/>
-                    <span asp-validation-for="IdReserva" class="text-danger"></span>
-                </div>
-                <br>
-                <div class="d-flex flex-row-reverse mt-3">
-                            <button type="submit" class="btn">
-                            <img height="50px" width="50px" src="./confirm-icon.png" alt="" title="Confirmar">
-                        </button>
-                <a asp-action="Listar" asp-controller="MantenedorPago" class="btn btn-warning">Volver al listado</a>
-            </form>
-        </div>
-        </div>
-    </div>
+            <div class="card-body">
 
-    <!-- OLD -->
+                <form asp-action="Editar" asp-controller="MantenedorPago" method="post">
+
+                    <input asp-for="IdPago" type="hidden" class="form-control" />
+                    <div class="mb-3">
+                        <label class="form-label">MontoFinal</label>
+                        <input asp-for="MontoFinal" type="number" step="any" class="form-control" required/>
+                        <span asp-validation-for="MontoFinal" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Estado</label>
+                        <input asp-for="Estado" type="text" class="form-control" required/>
+                        <span asp-validation-for="Estado" class="text-danger"></span>
+                    </div>
+                     <div class="mb-3">
+                        <label class="form-label">Servicio de Pago</label><br>
+                        <input asp-for="ServicioPago" type="radio" id="PRISMA" name="ServicioPago" value="PRISMA">
+                        <label for="ServicioPago"> PRISMA</label><br>
+                        <input asp-for="ServicioPago" type="radio" id="MERCADO_PAGO" name="ServicioPago" value="MERCADO_PAGO">
+                        <label for="ServicioPago"> MERCADO PAGO</label><br>
+                        <input asp-for="ServicioPago" type="radio" id="RAPIPAGO" name="ServicioPago" value="RAPIPAGO">
+                        <label for="ServicioPago"> RAPIPAGO</label><br>
+                        <input asp-for="ServicioPago" type="radio" id="PAGOFACIL" name="ServicioPago" value="PAGOFACIL">
+                        <label for="ServicioPago"> PAGOFACIL</label><br>
+                        <span asp-validation-for="ServicioPago" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">MedioPago</label>
+                        <input asp-for="MedioPago" type="text" class="form-control" required/>
+                        <span asp-validation-for="MedioPago" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">UltimosCuatro</label>
+                        <input asp-for="UltimosCuatro" type="number" class="form-control" required/>
+                        <span asp-validation-for="UltimosCuatro" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Cuotas</label>
+                        <input asp-for="Cuotas" type="number" class="form-control" required/>
+                        <span asp-validation-for="Cuotas" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">CodigoBarras</label>
+                        <input asp-for="CodigoBarras" type="text" class="form-control" required/>
+                        <span asp-validation-for="CodigoBarras" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Cvu</label>
+                        <input asp-for="Cvu" type="number" class="form-control" required/>
+                        <span asp-validation-for="Cvu" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">IdReserva</label>
+                        <input asp-for="IdReserva" type="text" class="form-control" required/>
+                        <span asp-validation-for="IdReserva" class="text-danger"></span>
+                    </div>
+                    <br>
+                    <div class="d-flex flex-row-reverse mt-3">
+                        <button type="submit" class="btn">
+                            <img height="50px" width="50px" src="~/confirm-icon.png" alt="" title="Confirmar">
+                        </button>
+                    <a asp-action="Listar" asp-controller="MantenedorPago" class="btn btn-warning">Volver al listado</a>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+
+        <!-- OLD -->
 
 <!-- <div class="card">
     <div class="card-header">

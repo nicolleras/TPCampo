@@ -7,7 +7,15 @@
     <div class="card m-3">
         <div class="row card-oppacity-orange">
             <div class="card-header">
-                Reservar
+            <div class="col-1">
+                            <a asp-action="ListarBusqueda" asp-controller="MantenedorVehiculo"
+                        asp-route-Destino="@ViewBag.Destino" asp-route-FechaInicio="@ViewBag.FechaInicio"
+                        asp-route-FechaFin="@ViewBag.FechaFin"><img src="~/goback-icon.png" alt="Volver" height="30px" width="20px"></a>
+                        </div>
+                        <div class="col-9">
+                            <h4 class="subtitle">Reservar</h4> 
+                        </div>
+                    </div>
             </div>
             <div class="card-body">
 
@@ -40,9 +48,6 @@
                                 </div>
                                 <span>Reservar</span>
                             </button>
-                    <a asp-action="ListarBusqueda" asp-controller="MantenedorVehiculo"
-                        asp-route-Destino="@ViewBag.Destino" asp-route-FechaInicio="@ViewBag.FechaInicio"
-                        asp-route-FechaFin="@ViewBag.FechaFin" class="btn btn-warning">Volver al listado</a>
                 </form>
             </div>
         </div>

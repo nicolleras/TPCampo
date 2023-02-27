@@ -7,7 +7,16 @@
 
 <div class="card">
     <div class="card-header">
-        Crear Empresa Proveedora
+        <div class="row d-flex flex-wrap">
+            <div class="col-1">
+                <a asp-action="Listar" asp-controller="MantenedorEmpresaProveedora"><img src="~/goback-icon.png" alt="Volver" height="30px" width="20px"></a>
+            </div>
+            <div class="col-9">
+                <h4 class="subtitle">Crear Empresa Proveedora</h4> 
+            </div>
+        </div>
+    </div>
+        
     </div>
     <div class="card-body">
         
@@ -29,10 +38,10 @@
             </div>
             <br>
             <div class="d-flex flex-row-reverse mt-3">
-                            <button type="submit" class="btn">
-                            <img height="50px" width="50px" src="./confirm-icon.png" alt="" title="Confirmar">
-                        </button>
-            <a asp-action="Listar" asp-controller="MantenedorEmpresaProveedora" class="btn btn-warning">Volver al listado</a>
+                <button type="submit" class="btn">
+                    <img height="50px" width="50px" src="~/confirm-icon.png" alt="" title="Confirmar">
+                </button>
+            </div>
         </form>
     </div>
 </div>
