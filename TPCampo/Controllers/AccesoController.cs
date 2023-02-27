@@ -116,6 +116,7 @@ namespace TPCampo.Controllers
                         while (dr.Read())
                         {
                             oUsuario.Rol = dr["Rol"].ToString();
+                            oUsuario.Nombre = dr["Nombre"].ToString();
                         }
                     }
                 }
