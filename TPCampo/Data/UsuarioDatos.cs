@@ -120,7 +120,7 @@ namespace TPCampo.Data
             return respuesta;
         }
 
-        public bool CrearCuenta(UsuarioModel oUsuario)
+        public bool CrearUsuario(UsuarioModel oUsuario)
         {
             bool respuesta;
 

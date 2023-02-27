@@ -43,14 +43,14 @@ namespace TPCampo.Controllers
                 return View();
         }
 
-        public IActionResult CrearCuenta()
+        public IActionResult CrearUsuario()
         {
             //Esto devuelve solamente la vista, el formulario HTML
             return View();
         }
 
         [HttpPost]
-        public IActionResult CrearCuenta(UsuarioModel oUsuario)
+        public IActionResult CrearUsuario(UsuarioModel oUsuario)
         {
             //Este metodo recibe un objeto y lo guarda en la db
             if (!ModelState.IsValid)
