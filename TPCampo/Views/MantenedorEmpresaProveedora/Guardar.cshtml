@@ -24,7 +24,7 @@
         <form asp-action="Guardar" asp-controller="MantenedorEmpresaProveedora" method="post">
             <div class="mb-3">
                 <label class="form-label">Nombre</label>
-                <input asp-for="Nombre" type="text" class="form-control" />
+                <input asp-for="Nombre" type="text" class="form-control" maxlength="20" required/>
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
             <div class="mb-3">
@@ -33,8 +33,8 @@
                 <span asp-validation-for="Logo" class="text-danger"></span>
             </div>
             <div class="mb-3">
-                <label class="form-label">CalificacionPromedio</label>
-                <input asp-for="CalificacionPromedio" type="text" class="form-control" />
+                <label class="form-label">Calificacion Promedio</label>
+                <input asp-for="CalificacionPromedio" type="number" class="form-control" />
                 <span asp-validation-for="CalificacionPromedio" class="text-danger"></span>
             </div>
             <br>

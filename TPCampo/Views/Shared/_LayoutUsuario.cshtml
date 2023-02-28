@@ -36,13 +36,13 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Acceso" asp-action="Login">Log out</a>
                         </li>
-                        <li class="nav-item">
-                            @{
-                                var item = GlobalUser.Nombre;
-                            }
-                            <strong> @item </strong>
-                        </li>
                     </ul>
+                </div>
+                <div>
+                    @{
+                    var item = GlobalUser.Nombre;
+                    }
+                    <p class="subtitle mr-4"> @item </p>
                 </div>
             </div>
         </nav>

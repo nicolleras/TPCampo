@@ -24,12 +24,12 @@
 
                         <div class="">
                             <label class="form-label mt-2">Nombre</label>
-                            <input asp-for="Nombre" type="text" class="form-control" required />
+                            <input asp-for="Nombre" type="text" class="form-control" maxlength="20" required />
                             <span asp-validation-for="Nombre" class="text-danger"></span>
                         </div>
                         <div class="">
                             <label class="form-label mt-2">Apellido</label>
-                            <input asp-for="Apellido" type="text" class="form-control" required />
+                            <input asp-for="Apellido" type="text" class="form-control" maxlength="20" required />
                             <span asp-validation-for="Apellido" class="text-danger"></span>
                         </div>
                         <div class="">
@@ -70,7 +70,7 @@
                     </div> -->
                         <div class="">
                             <label class="form-label mt-2">Dni</label>
-                            <input asp-for="Dni" type="number" class="form-control" required />
+                            <input asp-for="Dni" type="number" class="form-control" maxlength="9" required />
                             <span asp-validation-for="Dni" class="text-danger"></span>
                         </div>
                         <div class="">

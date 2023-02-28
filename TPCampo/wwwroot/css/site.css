@@ -133,7 +133,7 @@ body {
     transition: width 0.2s ease-in-out;
     font-weight: 500;
     font-family: inherit;
-  
+
 }
 
 .add-btn:hover {
@@ -276,9 +276,9 @@ body {
 }
 
 
-#btn-Vehiculo{
-    background-color:white;
-    color:black;
+#btn-Vehiculo {
+    background-color: white;
+    color: black;
 }
 
 a {
@@ -286,6 +286,6 @@ a {
     color: black;
 }
 
-a:hover{
-    color:black;
+a:hover {
+    color: black;
 }

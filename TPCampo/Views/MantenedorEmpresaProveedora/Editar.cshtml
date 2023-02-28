@@ -6,53 +6,50 @@
 }
 <!-- NEW -->
 
-    <div class="col d-flex justify-content-center m-2">
-        <div class="card">
-            <div class="row card-oppacity-orange">
-                <div class="card-header">
-                <div class="card-header">
-                    <div class="row d-flex flex-wrap">
-                        <div class="col-1">
-                            <a asp-action="Listar" asp-controller="MantenedorEmpresaProveedora"><img src="~/goback-icon.png" alt="Volver" height="30px" width="20px"></a>
-                        </div>
-                        <div class="col-9">
-                            <h4 class="subtitle">Editar</h4> 
-                        </div>
+<div class="col d-flex justify-content-center m-2">
+    <div class="card">
+        <div class="row card-oppacity-orange">
+            <div class="card-header">
+                <div class="row d-flex flex-wrap">
+                    <div class="col-1">
+                        <a asp-action="Listar" asp-controller="MantenedorEmpresaProveedora"><img src="~/goback-icon.png" alt="Volver" height="30px" width="20px"></a>
+                    </div>
+                    <div class="col-9">
+                        <h4 class="subtitle">Editar</h4> 
                     </div>
                 </div>
-                </div>
-                <div class="card-body">
-
-                    <form asp-action="Editar" asp-controller="MantenedorEmpresaProveedora" method="post">
-
-                        <input asp-for="IdEmpresaProveedora" type="hidden" class="form-control" />
-                        <div class="">
-                            <label class="form-label mt-2">Nombre</label>
-                            <input asp-for="Nombre" type="text" class="form-control" />
-                            <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            
+            <div class="card-body">
+                <form asp-action="Editar" asp-controller="MantenedorEmpresaProveedora" method="post">
+                    <input asp-for="IdEmpresaProveedora" type="hidden" class="form-control" />
+                    <div class="">
+                        <label class="form-label mt-2">Nombre</label>
+                        <input asp-for="Nombre" type="text" class="form-control" maxlength="20" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                    <div class="">
+                        <label class="form-label mt-2">Logo</label>
+                        <input asp-for="Logo" type="text" class="form-control" />
+                        <span asp-validation-for="Logo" class="text-danger"></span>
+                    </div>
+                    <div class="">
+                        <label class="form-label mt-2">Calificacion Promedio</label>
+                        <input asp-for="CalificacionPromedio" type="number" class="form-control" />
+                        <span asp-validation-for="CalificacionPromedio" class="text-danger"></span>
+                    </div>
+                    <div class="d-flex flex-row-reverse mt-2">
+                        <div class="d-flex flex-row-reverse mt-3">
+                            <button type="submit" class="btn">
+                                <img height="50px" width="50px" src="~/confirm-icon.png" alt="" title="Confirmar">
+                            </button>
                         </div>
-                        <div class="">
-                            <label class="form-label mt-2">Logo</label>
-                            <input asp-for="Logo" type="text" class="form-control" />
-                            <span asp-validation-for="Logo" class="text-danger"></span>
-                        </div>
-                        <div class="">
-                            <label class="form-label mt-2">CalificacionPromedio</label>
-                            <input asp-for="CalificacionPromedio" type="number" class="form-control" />
-                            <span asp-validation-for="CalificacionPromedio" class="text-danger"></span>
-                        </div>
-                        <div class="d-flex flex-row-reverse mt-2">
-                            <div class="d-flex flex-row-reverse mt-3">
-                                <button type="submit" class="btn">
-                                    <img height="50px" width="50px" src="~/confirm-icon.png" alt="" title="Confirmar">
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 <!-- OLD -->
 
 <!-- <div class="card">

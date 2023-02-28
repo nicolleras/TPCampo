@@ -53,12 +53,12 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">UltimosCuatro</label>
-                        <input asp-for="UltimosCuatro" type="number" class="form-control" required/>
+                        <input asp-for="UltimosCuatro" type="number" class="form-control" maxlength="4" required/>
                         <span asp-validation-for="UltimosCuatro" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Cuotas</label>
-                        <input asp-for="Cuotas" type="number" class="form-control" required/>
+                        <input asp-for="Cuotas" type="number" class="form-control" maxlength="2" required/>
                         <span asp-validation-for="Cuotas" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
@@ -67,7 +67,7 @@
                         <span asp-validation-for="CodigoBarras" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Cvu</label>
+                        <label class="form-label">CBU</label>
                         <input asp-for="Cvu" type="number" class="form-control" required/>
                         <span asp-validation-for="Cvu" class="text-danger"></span>
                     </div>
