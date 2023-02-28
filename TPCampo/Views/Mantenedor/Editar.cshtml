@@ -26,12 +26,12 @@
                         <input asp-for="IdUsuario" type="hidden" class="form-control" />
                         <div class="">
                             <label class="form-label m-2">Nombre</label>
-                            <input asp-for="Nombre" type="text" class="form-control" required />
+                            <input asp-for="Nombre" type="text" class="form-control" maxlength="20" required />
                             <span asp-validation-for="Nombre" class="text-danger"></span>
                         </div>
                         <div class="">
                             <label class="form-label m-2">Apellido</label>
-                            <input asp-for="Apellido" type="text" class="form-control" required />
+                            <input asp-for="Apellido" type="text" class="form-control" maxlength="20" required />
                             <span asp-validation-for="Apellido" class="text-danger"></span>
                         </div>
                         <div class="">
@@ -60,7 +60,7 @@
                         </div>
                         <div class="">
                             <label class="form-label m-2">FechaNacimiento</label>
-                            <input asp-for="FechaNacimiento" type="text" class="form-control" required />
+                            <input asp-for="FechaNacimiento" type="date" class="form-control" required />
                             <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
                         </div>
                         <!--  <div class="mb-3">
@@ -70,12 +70,12 @@
                 </div> -->
                         <div class="">
                             <label class="form-label m-2">Dni</label>
-                            <input asp-for="Dni" type="number" class="form-control" required />
+                            <input asp-for="Dni" type="number" class="form-control" maxlength="9" required />
                             <span asp-validation-for="Dni" class="text-danger"></span>
                         </div>
                         <div class="">
                             <label class="form-label m-2">Telefono</label>
-                            <input asp-for="Telefono" type="number" class="form-control" required />
+                            <input asp-for="Telefono" type="number" class="form-control" maxlength="20" required />
                             <span asp-validation-for="Telefono" class="text-danger"></span>
                         </div>
 
