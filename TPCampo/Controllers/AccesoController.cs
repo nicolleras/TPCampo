@@ -21,8 +21,8 @@ namespace TPCampo.Controllers
 
     public class AccesoController : Controller
     {
-
-         public ActionResult Login()
+        UsuarioDatos _UsuarioDatos = new UsuarioDatos();
+        public ActionResult Login()
          {
              return View();
          }
@@ -35,8 +35,17 @@ namespace TPCampo.Controllers
          [HttpPost]
          public ActionResult Registrar(UsuarioModel oUsuario)
          {
-             bool registrado;
+
+            var oLista = _UsuarioDatos.Listar();
+            bool registrado;
              string mensaje;
+
+            bool tiene = oLista.Any(x => x.Email == oUsuario.Email);
+            if (tiene)
+            {
+                ViewData["Mensaje"] = "Este mail ya existe";
+                return View();
+            }
 
             if (oUsuario.Contraseña == oUsuario.ConfirmarContraseña)
              {

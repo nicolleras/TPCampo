@@ -35,6 +35,15 @@ namespace TPCampo.Controllers
         public IActionResult Guardar(UsuarioModel oUsuario)
         {
 
+            var oLista = _UsuarioDatos.Listar();
+
+            bool tiene = oLista.Any(x => x.Email == oUsuario.Email);
+            if (tiene)
+            {
+                ViewData["Mensaje"] = "Este mail ya existe";
+                return View();
+            }
+
             if (oUsuario.Contraseña == oUsuario.ConfirmarContraseña)
             {
 
@@ -70,6 +79,16 @@ namespace TPCampo.Controllers
         [HttpPost]
         public IActionResult Editar(UsuarioModel oUsuario)
         {
+
+            var oLista = _UsuarioDatos.Listar();
+
+            bool tiene = oLista.Any(x => x.Email == oUsuario.Email);
+            if (tiene)
+            {
+                ViewData["Mensaje"] = "Este mail ya existe";
+                return View();
+            }
+
             oUsuario.Contraseña = ConvertirSha256(oUsuario.Contraseña);
             oUsuario.TipoDocumento = "";
             oUsuario.ConfirmarContraseña = "";
