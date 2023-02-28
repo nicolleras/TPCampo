@@ -28,29 +28,7 @@ namespace TPCampo.Controllers
 
             return View(modelos);
         }
-
-        public IActionResult Guardar()
-        {
-            //Esto devuelve solamente la vista, el formulario HTML
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Guardar(ReservaModel oReserva)
-        {
-            //Este metodo recibe un objeto y lo guarda en la db
-            if (!ModelState.IsValid)
-                return View();
-
-            var respuesta = _ReservaDatos.Guardar(oReserva);
-
-            if (respuesta)
-                return RedirectToAction("Listar");
-            else
-                return View();
-        }
-
-
+      
         public IActionResult ElegirReserva(int IdVehiculo, String Destino, String FechaInicio, String FechaFin, float PrecioPorDia)
         {
 
