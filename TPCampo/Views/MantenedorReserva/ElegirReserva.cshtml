@@ -10,12 +10,12 @@
             <div class="d-flex flex-wrap">
 
 
-            <div class="col-1">
+            <div class="">
                 <a asp-action="ListarBusqueda" asp-controller="MantenedorVehiculo"
                 asp-route-Destino="@ViewBag.Destino" asp-route-FechaInicio="@ViewBag.FechaInicio"
                 asp-route-FechaFin="@ViewBag.FechaFin"><img src="~/goback-icon.png" alt="Volver" height="30px" width="20px"></a>
             </div>
-            <div class="col-9">
+            <div class="col-5">
                  <h4 class="subtitle">Reservar</h4> 
             </div>
         </div>
@@ -35,12 +35,15 @@
                         <li>MontoTotal: @ViewBag.MontoTotal</li>
                     </ul>
             </div>
-            <div class="alert alert-success" role="alert">
-                ¿Desea confirmar la reserva?
+            
+            <div class="col-3 text-center alert alert-success" role="alert">
+                 Confirmar reserva
+            
+                <button type="submit" class="col-3 btn">
+                    <img height="50px" width="50px" src="~/confirm-icon.png" alt="" title="Confirmar">
+                </button>
+              
             </div>
-            <button type="submit" class="btn">
-                <img height="50px" width="50px" src="~/confirm-icon.png" alt="" title="Confirmar">
-            </button>
         </form>
     </div>
 </div>
