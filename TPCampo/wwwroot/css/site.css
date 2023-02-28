@@ -289,3 +289,10 @@ a {
 a:hover {
     color: black;
 }
+
+.username {
+    padding-top: 5px;
+    font-size: 25px;
+    font-family: "Raleway", sans-serif;
+    margin-right: 20px;
+}

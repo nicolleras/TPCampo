@@ -46,3 +46,10 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+
+.username {
+  padding-top: 5px;
+  font-size: 25px;
+  font-family: "Raleway", sans-serif;
+  margin-right: 20px;
+}

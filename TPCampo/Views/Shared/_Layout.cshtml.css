@@ -54,3 +54,10 @@ button.accept-policy {
 body {
   background-image: url("https://img2.rtve.es/i/?w=1600&i=1634194794500.jpg");
 }
+
+.username {
+  padding-top: 5px;
+  font-size: 25px;
+  font-family: "Raleway", sans-serif;
+  margin-right: 20px;
+}
