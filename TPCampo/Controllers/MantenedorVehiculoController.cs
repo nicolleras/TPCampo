@@ -57,33 +57,67 @@ namespace TPCampo.Controllers
                     int idVehiculo = (int)reserva.IdVehiculo;
                     bool disponible = false;
 
-                    if ((fechaInicioBusqueda < fechaInicioReserva) || (fechaInicioBusqueda > fechaFinReserva))
+                    if ((fechaInicioBusqueda < fechaInicioReserva) && (fechaFinBusqueda < fechaInicioReserva))
                     {
-                        if ((fechaFinBusqueda < fechaInicioReserva) || (fechaFinBusqueda > fechaFinReserva))
-                        {
-                            bool has = oLista.Any(x => x.IdVehiculo == idVehiculo);
-                            if (!has)
-                            {
-                                oLista.Remove(_VehiculoDatos.Obtener((int)reserva.IdVehiculo));
-                            }
-                            disponible = true;
-                        }       
+                        disponible = true;
                     }
 
                     if (!disponible)
                     {
+                        if ((fechaInicioBusqueda > fechaFinReserva) && (fechaFinBusqueda > fechaFinReserva))
+                        {
+                            disponible = true;
+                        }
+                    }
+
+                    if (disponible)
+                    {
+                        if ((fechaInicioBusqueda > fechaInicioReserva) && (fechaInicioBusqueda < fechaFinReserva))
+                        {
+                            disponible = false;
+                        }
+                    }
+
+                    if (disponible)
+                    {
+                        if ((fechaFinBusqueda > fechaInicioReserva) && (fechaFinBusqueda < fechaFinReserva))
+                        {
+                            disponible = false;
+                        }
+                    }
+
+
+                    if (disponible)
+                    {
+                        if ((fechaInicioBusqueda < fechaInicioReserva) && (fechaFinBusqueda > fechaFinReserva))
+                        {
+                            disponible = false;
+                        }
+                    }
+
+                    if (disponible)
+                    {
                         bool has = oLista.Any(x => x.IdVehiculo == idVehiculo);
                         if (!has)
                         {
-                            vehiculosLista.Remove(_VehiculoDatos.Obtener((int)reserva.IdVehiculo));
+                            oLista.Add(_VehiculoDatos.Obtener((idVehiculo)));
                         }
                     }
-                    bool tiene = listaIdVehiculos.Any(x => x == idVehiculo);
+
+                    /* bool tiene = listaIdVehiculos.Any(x => x == idVehiculo);
                     if (!tiene)
                     {
                         listaIdVehiculos.Add(idVehiculo);
-                    }
+                    } */
 
+                }
+                foreach (var vehiculos in vehiculosLista)
+                {
+                    bool has = rLista.Any(x => x.IdVehiculo == vehiculos.IdVehiculo);
+                    if (!has)
+                    {
+                        oLista.Add(_VehiculoDatos.Obtener(((int)vehiculos.IdVehiculo)));
+                    }
                 }
 
                 /*foreach (var vehiculos in vehiculosLista)
@@ -106,11 +140,11 @@ namespace TPCampo.Controllers
 
                 }*/
 
-                oLista = oLista.DistinctBy(x => x.IdVehiculo).ToList();
+                /* oLista = oLista.DistinctBy(x => x.IdVehiculo).ToList(); */
 
                 Modelos modelos = new Modelos();
                 //Esta vista muestra la lista de Vehiculos
-                modelos.vehiculosModel = vehiculosLista;
+                modelos.vehiculosModel = oLista;
                 if (TempData.Count != 0)
                 {
                     modelos.buscarModel = JsonConvert.DeserializeObject<BuscarModel>(TempData["mydata"].ToString());
