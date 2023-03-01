@@ -9,70 +9,70 @@
     <div class="card-body m-2">
 
         <div class="row card-oppacity-orange">
-            <div>
-                <h4 class="megatitle">Vehículos</h4>
-            </div>
-            <div class="flex-row-reverse d-flex">
-                <div class="d-flex flex-row-reverse mb-2">
-                        <a asp-action="Guardar" asp-controller="MantenedorVehiculo"  id="btn-Vehiculo" class="btn btn-success icon-btn add-btn">
-                            <div class="add-icon"></div>
-                            <div class="btn-txt">Crear Vehículo</div>
-                        </a>
+                <div>
+                    <h4 class="megatitle">Vehículos</h4>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="row flex-wrap justify-content-center">
-                   @if (Model != null)
-                    {
-                    @foreach (var item in Model)
-                    {
-                    <div class="card col-3 item-card mb-3 ms-3">
-                        <img class="card-img-top mt-2" src="@item.Imagen">
-                        <div class="card-body p-0">
-                            <ul class="none-style-list">
-                                <li class="item-title"> <strong>@item.Modelo</strong></li>
-                                <li> <strong>Marca</strong>: @item.Marca</li>
-                                <li> <strong>Precio</strong>: $ @item.PrecioPorDia</li>
-                                <li> <strong>Capacidad</strong>: @item.CapacidadPasajeros</li>
-                                <li> <strong>Equipaje</strong>: @item.CapacidadEquipaje Kg</li>
-                                <li> <strong>Caja</strong>: @item.TipoCaja</li>
-                                <li> <strong>Puertas</strong>: @item.CantidadDePuertas</li>
-                                    @if (@item.AireAcondicionado == "true")
-                                    {
-                                         <li> <strong>Aire Acondicionado</strong>: Si</li>
-                                    }else{
-                                        <li> <strong>Aire Acondicionado</strong>: No</li>
-                                    }
-                                   
-                                <li> <strong>Cobertura</strong>: @item.TipoDeCobertura</li>
-                                <li> <strong>Km habilitado</strong>: @item.KmHabilitado</li>
-                                @foreach(var empresa in ViewBag.empresas){
-                                        @if (@empresa.IdEmpresaProveedora == @item.IdEmpresaProveedora)
-                                        {
-                                            <li> <strong>Empresa Proveedora</strong>: @empresa.Nombre</li>
-                                        }                                 
-                                }  
-                                <li>
-                                    <div class="d-flex flex-row-reverse">
-                                            <a asp-action="Eliminar" asp-controller="MantenedorVehiculo" asp-route-IdVehiculo="@item.IdVehiculo" class="del-btn mb-1" title="eliminar">
-                                                <svg viewBox="0 0 15 17.5" height="17.5" width="15" xmlns="http://www.w3.org/2000/svg" class="icon">
-                                                <path transform="translate(-2.5 -1.25)" d="M15,18.75H5A1.251,1.251,0,0,1,3.75,17.5V5H2.5V3.75h15V5H16.25V17.5A1.251,1.251,0,0,1,15,18.75ZM5,5V17.5H15V5Zm7.5,10H11.25V7.5H12.5V15ZM8.75,15H7.5V7.5H8.75V15ZM12.5,2.5h-5V1.25h5V2.5Z" id="Fill"></path>
-                                              </svg>
-                                              </a>
-                                            <a asp-action="Editar" asp-controller="MantenedorVehiculo"
-                                       class="edit-btn"
-                                       asp-route-IdVehiculo="@item.IdVehiculo"><img src="~/edit-icon.png" class="edit-icon" title="editar"></a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                <div class="flex-row-reverse d-flex">
+                    <div class="d-flex flex-row-reverse mb-2">
+                            <a asp-action="Guardar" asp-controller="MantenedorVehiculo"  id="btn-Vehiculo" class="btn btn-success icon-btn add-btn">
+                                <div class="add-icon"></div>
+                                <div class="btn-txt">Crear Vehículo</div>
+                            </a>
                     </div>
-                    }
-                    }
+                </div>
+
+                <div class="row">
+                    <div class="row flex-wrap justify-content-center">
+                       @if (Model != null)
+                        {
+                        @foreach (var item in Model)
+                        {
+                        <div class="card col-3 item-card mb-3 ms-3">
+                            <img class="card-img-top mt-2" src="@item.Imagen">
+                            <div class="card-body p-0">
+                                <ul class="none-style-list">
+                                    <li class="item-title"> <strong>@item.Modelo</strong></li>
+                                    <li> <strong>Marca</strong>: @item.Marca</li>
+                                    <li> <strong>Precio</strong>: $ @item.PrecioPorDia</li>
+                                    <li> <strong>Capacidad</strong>: @item.CapacidadPasajeros</li>
+                                    <li> <strong>Equipaje</strong>: @item.CapacidadEquipaje Kg</li>
+                                    <li> <strong>Caja</strong>: @item.TipoCaja</li>
+                                    <li> <strong>Puertas</strong>: @item.CantidadDePuertas</li>
+                                        @if (@item.AireAcondicionado == "true")
+                                        {
+                                             <li> <strong>Aire Acondicionado</strong>: Si</li>
+                                        }else{
+                                            <li> <strong>Aire Acondicionado</strong>: No</li>
+                                        }
+                                   
+                                    <li> <strong>Cobertura</strong>: @item.TipoDeCobertura</li>
+                                    <li> <strong>Km habilitado</strong>: @item.KmHabilitado</li>
+                                    @foreach(var empresa in ViewBag.empresas){
+                                            @if (@empresa.IdEmpresaProveedora == @item.IdEmpresaProveedora)
+                                            {
+                                                <li> <strong>Empresa Proveedora</strong>: @empresa.Nombre</li>
+                                            }                                 
+                                    }  
+                                    <li>
+                                        <div class="d-flex flex-row-reverse">
+                                                <a asp-action="Eliminar" asp-controller="MantenedorVehiculo" asp-route-IdVehiculo="@item.IdVehiculo" class="del-btn mb-1" title="eliminar">
+                                                    <svg viewBox="0 0 15 17.5" height="17.5" width="15" xmlns="http://www.w3.org/2000/svg" class="icon">
+                                                    <path transform="translate(-2.5 -1.25)" d="M15,18.75H5A1.251,1.251,0,0,1,3.75,17.5V5H2.5V3.75h15V5H16.25V17.5A1.251,1.251,0,0,1,15,18.75ZM5,5V17.5H15V5Zm7.5,10H11.25V7.5H12.5V15ZM8.75,15H7.5V7.5H8.75V15ZM12.5,2.5h-5V1.25h5V2.5Z" id="Fill"></path>
+                                                  </svg>
+                                                  </a>
+                                                <a asp-action="Editar" asp-controller="MantenedorVehiculo"
+                                           class="edit-btn"
+                                           asp-route-IdVehiculo="@item.IdVehiculo"><img src="~/edit-icon.png" class="edit-icon" title="editar"></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        }
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
 
 
