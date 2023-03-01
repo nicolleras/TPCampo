@@ -103,14 +103,8 @@ namespace TPCampo.Controllers
                             oLista.Add(_VehiculoDatos.Obtener((idVehiculo)));
                         }
                     }
-
-                    /* bool tiene = listaIdVehiculos.Any(x => x == idVehiculo);
-                    if (!tiene)
-                    {
-                        listaIdVehiculos.Add(idVehiculo);
-                    } */
-
                 }
+
                 foreach (var vehiculos in vehiculosLista)
                 {
                     bool has = rLista.Any(x => x.IdVehiculo == vehiculos.IdVehiculo);
@@ -120,13 +114,14 @@ namespace TPCampo.Controllers
                     }
                 }
 
+
                 /*foreach (var vehiculos in vehiculosLista)
                 {
                     if (listaIdVehiculos.Count() != 0)
                     {
                         foreach (var vehiculo in listaIdVehiculos)
                         {
-                            bool has = listaIdVehiculos.Any(x => x == vehiculos.IdVehiculo);
+                            bool has = oLista.Any(x => x == vehiculos.IdVehiculo);
                             if (!has)
                             {
                                 oLista.Add(_VehiculoDatos.Obtener(vehiculos.IdVehiculo));

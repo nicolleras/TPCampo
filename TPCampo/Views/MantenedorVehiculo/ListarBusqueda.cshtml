@@ -23,7 +23,7 @@
         <hr />
         <div class="card-oppacity-orange">
             <div class="row flex-wrap justify-content-center">
-             @if(Model.vehiculosModel != null){
+             @if(Model.vehiculosModel.Count != 0){
                 @foreach (var item in Model.vehiculosModel)
                 {
                     <div class="card col-3 item-card mb-3 ms-3">
@@ -79,6 +79,11 @@
                         </div>
                     </div>
                 }
+            }
+            else {
+            <div class="d-flex justify-content-center">
+                <h4 class="subtitle"> No se encontraron vehiculos disponibles </h4>
+            </div>
             }
             </div>
         </div>
