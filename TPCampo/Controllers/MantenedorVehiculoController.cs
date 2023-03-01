@@ -30,14 +30,15 @@ namespace TPCampo.Controllers
             ViewBag.empresas = _EmpresaProveedoraDatos.Listar();
             List<ReservaModel> rLista = _ReservaDatos.Listar();
             List<VehiculoModel> vehiculosLista = _VehiculoDatos.Listar();
-            List<int> listaIdVehiculos = new List<int>(); 
+            List<int> listaIdVehiculos = new List<int>();
             var oLista = new List<VehiculoModel>();
             DateTime? fechaInicioBusqueda = null;
             DateTime? fechaFinBusqueda = null;
             BuscarModel buscarModel = new BuscarModel();
-            if (TempData.Count != 0 || FechaInicio != null) { 
+            if (TempData.Count != 0 || FechaInicio != null)
+            {
 
-                if(TempData.Count != 0)
+                if (TempData.Count != 0)
                 {
                     BuscarModel buscar = JsonConvert.DeserializeObject<BuscarModel>(TempData["mydata"].ToString());
                     fechaInicioBusqueda = DateTime.ParseExact(buscar.FechaInicio, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None);
@@ -56,41 +57,36 @@ namespace TPCampo.Controllers
                     int idVehiculo = (int)reserva.IdVehiculo;
                     bool disponible = false;
 
-                        if ((fechaFinBusqueda < fechaInicioReserva))
+                    if ((fechaInicioBusqueda < fechaInicioReserva) || (fechaInicioBusqueda > fechaFinReserva))
+                    {
+                        if ((fechaFinBusqueda < fechaInicioReserva) || (fechaFinBusqueda > fechaFinReserva))
                         {
                             bool has = oLista.Any(x => x.IdVehiculo == idVehiculo);
                             if (!has)
                             {
-                                oLista.Add(_VehiculoDatos.Obtener(idVehiculo));
+                                oLista.Remove(_VehiculoDatos.Obtener((int)reserva.IdVehiculo));
                             }
                             disponible = true;
-                        }
-                        if ((fechaInicioBusqueda > fechaFinReserva))
+                        }       
+                    }
+
+                    if (!disponible)
+                    {
+                        bool has = oLista.Any(x => x.IdVehiculo == idVehiculo);
+                        if (!has)
                         {
-                            bool has = oLista.Any(x => x.IdVehiculo == idVehiculo);
-                            if (!has)
-                            {
-                                oLista.Add(_VehiculoDatos.Obtener(idVehiculo));
-                            }
-                            disponible = true;
+                            vehiculosLista.Remove(_VehiculoDatos.Obtener((int)reserva.IdVehiculo));
                         }
-                        if (!disponible)
-                        {
-                            bool has = oLista.Any(x => x.IdVehiculo == idVehiculo);
-                            if (has)
-                            {
-                                oLista.Remove(_VehiculoDatos.Obtener(idVehiculo));
-                            }
-                        }
-                        bool tiene = listaIdVehiculos.Any(x => x == idVehiculo);
-                        if (!tiene)
-                        {
-                            listaIdVehiculos.Add(idVehiculo);
-                        }
+                    }
+                    bool tiene = listaIdVehiculos.Any(x => x == idVehiculo);
+                    if (!tiene)
+                    {
+                        listaIdVehiculos.Add(idVehiculo);
+                    }
 
                 }
 
-                foreach (var vehiculos in vehiculosLista)
+                /*foreach (var vehiculos in vehiculosLista)
                 {
                     if (listaIdVehiculos.Count() != 0)
                     {
@@ -108,13 +104,13 @@ namespace TPCampo.Controllers
                         oLista.Add(_VehiculoDatos.Obtener(vehiculos.IdVehiculo));
                     }
 
-                }
+                }*/
 
                 oLista = oLista.DistinctBy(x => x.IdVehiculo).ToList();
 
                 Modelos modelos = new Modelos();
-            //Esta vista muestra la lista de Vehiculos
-                modelos.vehiculosModel = oLista;
+                //Esta vista muestra la lista de Vehiculos
+                modelos.vehiculosModel = vehiculosLista;
                 if (TempData.Count != 0)
                 {
                     modelos.buscarModel = JsonConvert.DeserializeObject<BuscarModel>(TempData["mydata"].ToString());

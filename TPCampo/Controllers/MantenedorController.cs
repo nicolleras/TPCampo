@@ -82,13 +82,6 @@ namespace TPCampo.Controllers
 
             var oLista = _UsuarioDatos.Listar();
 
-            bool tiene = oLista.Any(x => x.Email == oUsuario.Email);
-            if (tiene)
-            {
-                ViewData["Mensaje"] = "Este mail ya existe";
-                return View();
-            }
-
             oUsuario.Contraseña = ConvertirSha256(oUsuario.Contraseña);
             oUsuario.TipoDocumento = "";
             oUsuario.ConfirmarContraseña = "";

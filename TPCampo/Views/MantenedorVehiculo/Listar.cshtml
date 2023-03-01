@@ -16,7 +16,7 @@
                     <div class="d-flex flex-row-reverse mb-2">
                             <a asp-action="Guardar" asp-controller="MantenedorVehiculo"  id="btn-Vehiculo" class="btn btn-success icon-btn add-btn">
                                 <div class="add-icon"></div>
-                                <div class="btn-txt">Crear Vehículo</div>
+                                <div class="btn-txt text-center">Nuevo Vehículo</div>
                             </a>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                                     <li> <strong>Marca</strong>: @item.Marca</li>
                                     <li> <strong>Precio</strong>: $ @item.PrecioPorDia</li>
                                     <li> <strong>Capacidad</strong>: @item.CapacidadPasajeros</li>
-                                    <li> <strong>Equipaje</strong>: @item.CapacidadEquipaje Kg</li>
+                                    <li> <strong>Equipaje (por persona)</strong>: @item.CapacidadEquipaje</li>
                                     <li> <strong>Caja</strong>: @item.TipoCaja</li>
                                     <li> <strong>Puertas</strong>: @item.CantidadDePuertas</li>
                                         @if (@item.AireAcondicionado == "true")
